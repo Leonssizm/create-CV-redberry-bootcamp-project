@@ -1,0 +1,140 @@
+body,
+html {
+  margin: 0;
+  display: flex;
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeue.ttc');
+}
+h1,
+p {
+  margin: 0;
+}
+
+/* form stylings */
+.form {
+  width: 1098px;
+  background: #f9f9f9;
+}
+.backBtn {
+  margin-right: 77px;
+  width: 9.21px;
+  height: 16px;
+  font-weight: 500;
+}
+.header-backBtn-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 57px 0px 0 62px;
+}
+.header-info-container {
+  display: flex;
+  border-bottom: 1px solid #1a1a1a;
+}
+.header-info-container h1 {
+  width: 179px;
+  height: 29px;
+  font-family: 'HelveticaNeue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #1a1a1a;
+  margin-right: 592px;
+  margin-bottom: 12px;
+}
+.header-info-container p {
+  width: 29px;
+  height: 24px;
+  top: 49px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+/* form inputs */
+label,
+.imageInputLabel {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+/* name & surname */
+.error {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #2e2e2e;
+  margin-top: 8px;
+}
+.name-surname-wrapper {
+  margin-top: 77px;
+  display: flex;
+  justify-content: center;
+}
+.name {
+  margin-right: 56px;
+}
+.name,
+.surname {
+  display: flex;
+  flex-direction: column;
+}
+.nameInput,
+.surnameInput {
+  width: 355px;
+  height: 48px;
+  padding-left: 16px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+}
+.nameInput::placeholder,
+.surnameInput::placeholder {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* picture & about me */
+
+.picture {
+  display: flex;
+}
+
+.imgUploadBtn {
+  cursor: pointer;
+  padding: 4px 19px 6px 19px;
+  background: #0e80bf;
+  border-radius: 4px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}
+#imageInput {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}

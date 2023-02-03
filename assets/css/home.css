@@ -10,8 +10,8 @@ html {
   background-size: cover;
 }
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url(../fonts/HelveticaNeue.ttc);
+  font-family: 'HelveticaNeue';
+  src: url('../fonts/HelveticaNeue.ttc');
 }
 
 .header {
@@ -38,7 +38,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Helvetica Neue';
+  font-family: 'HelveticaNeue';
   font-style: normal;
   font-weight: 600;
   font-size: 23px;
