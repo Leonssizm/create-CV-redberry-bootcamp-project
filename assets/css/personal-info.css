@@ -83,8 +83,15 @@ label,
   justify-content: center;
 }
 .name {
-  margin-right: 56px;
+  margin-right: 19px;
 }
+.surname {
+  margin-left: 19px;
+}
+#surnameErrorImg {
+  margin-left: 10px;
+}
+
 .name,
 .surname,
 .about,
@@ -112,6 +119,12 @@ label,
   display: flex;
   align-items: center;
   color: rgba(0, 0, 0, 0.6);
+}
+.validatedCheck {
+  background-image: url(../icons/success-check.svg);
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  background-position: 340px;
 }
 
 /* picture & about me */
@@ -204,4 +217,51 @@ label,
   line-height: 20px;
   letter-spacing: 0.08em;
   color: #ffffff;
+}
+
+/* CV Display */
+.form-info-display {
+  margin: 68px 0 0 80px;
+}
+.info-picture-wrapper {
+  display: flex;
+}
+.name-surname {
+  display: flex;
+}
+.name-surname h1:first-child {
+  margin-right: 20px;
+}
+.name-surname h1 {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+  color: #f93b1d;
+}
+
+/* CV picture */
+
+#displayImage {
+  width: 246px;
+  height: 246px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+}
+/* stylings for validation */
+.input-control input:focus {
+  outline: 0;
+}
+.input-control.success input {
+  border-color: #98e37e;
+}
+.input-control.error input {
+  border-color: #ef5050;
+}
+.input-control.error {
+  color: #ef5050;
+  font-size: 15px;
+  margin-top: 0;
 }

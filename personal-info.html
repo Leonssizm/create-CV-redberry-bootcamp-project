@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/personal-info.css">
+    <script src="./assets/scripts/personal-info.js" defer></script>
+    <script src="./assets/scripts/validations.js" defer></script>
+    <script src="./assets/scripts/image-upload.js" defer></script>
     <title>Personal Information</title>
 </head>
 
@@ -23,23 +26,25 @@
             </div>
         </div>
         <div class="name-surname-wrapper">
-            <div class="name">
-                <label>სახელი</label>
+            <div class="name input-control">
+                <label id="nameLabel">სახელი</label>
                 <input type="text" id="nameInput" class="nameInput" placeholder="ანზორ">
                 <div class="error">მინიმუმ 2 ასო, ქართული ასოები</div>
             </div>
-            <div class="surname">
-                <label>გვარი</label>
+            <img id="nameErrorImg">
+            <div class="surname input-control">
+                <label id="surnameLabel">გვარი</label>
                 <input type="text" id="surnameInput" class="surnameInput" placeholder="მუმლაძე">
                 <div class="error">მინიმუმ 2 ასო, ქართული ასოები</div>
             </div>
+            <img id="surnameErrorImg">
         </div>
         <div class="picture-about-wrapper">
             <div class="picture">
                 <p class="imgInputLabel">პირადი ფოტოს ატვირთვა</p>
                 <label class="imgUploadBtn">
                     ატვირთვა
-                    <input type="file" id="imageInput" class="imageInput">
+                    <input type="file" id="imageInput" class="imageInput" accept="image/png, image/jpg">
                 </label>
             </div>
             <div class="about">
@@ -63,10 +68,17 @@
             <button type="button" class="nextPageButton">შემდეგი</button>
         </div>
     </div>
-    <div class="cv">
-        <div class="greetings">
-            <h1>Form info goes here</h1>
-
+    <div class="form-info-display">
+        <div class="info-picture-wrapper">
+            <div class="info-container">
+                <div class="name-surname">
+                    <h1 id="formName"></h1>
+                    <h1 id="formSurname"></h1>
+                </div>
+            </div>
+            <div class="picture-container">
+                <div id="displayImage"></div>
+            </div>
         </div>
     </div>
 </body>
