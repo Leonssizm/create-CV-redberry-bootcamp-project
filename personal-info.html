@@ -46,22 +46,30 @@
                     ატვირთვა
                     <input type="file" id="imageInput" class="imageInput" accept="image/png, image/jpg">
                 </label>
+                <img id="uploadPicErrorImg">
             </div>
             <div class="about">
                 <label>ჩემ შესახებ(არასავალდებულო)</label>
-                <input type="text" id="aboutInput" class="aboutInput" placeholder="ზოგადი ინფო შენ შესახებ">
+                <textarea type="text" id="aboutInput" class="aboutInput"
+                    placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
             </div>
         </div>
         <div class="email-number-wrapper">
-            <div class="email">
-                <label>ელ.ფოსტა</label>
-                <input type="text" id="emailInput" class="emailInput" placeholder="anzor666@redberry.ge">
-                <div class="error">უნდა მთავრდებოდეს @redberry.ge-თი</div>
+            <div class="email-container">
+                <div class="email input-control">
+                    <label id="emailLabel">ელ.ფოსტა</label>
+                    <input type="text" id="emailInput" class="emailInput" placeholder="anzor666@redberry.ge">
+                    <div class="error">უნდა მთავრდებოდეს @redberry.ge-თი</div>
+                </div>
+                <img id="emailErrorImg">
             </div>
-            <div class="phone">
-                <label>მობილურის ნომერი</label>
-                <input type="text" id="phoneNumInput" class="phoneNumInput" placeholder="+995 12 34 56">
-                <div class="error">უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</div>
+            <div class="phone-container">
+                <div class="phone input-control">
+                    <label id="phoneLabel">მობილურის ნომერი</label>
+                    <input type="text" id="phoneNumInput" class="phoneNumInput" placeholder="+995 551 12 34 56">
+                    <div class="error">უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</div>
+                </div>
+                <img id="phoneErrorImg">
             </div>
         </div>
         <div class="nextPageButton-container">
@@ -74,6 +82,11 @@
                 <div class="name-surname">
                     <h1 id="formName"></h1>
                     <h1 id="formSurname"></h1>
+
+                </div>
+                <div class="email-phone">
+                    <h3 id="formEmail"></h3>
+                    <h3 id="formNumber"></h3>
                 </div>
             </div>
             <div class="picture-container">

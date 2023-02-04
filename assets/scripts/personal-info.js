@@ -1,5 +1,7 @@
 const nameInputElement = document.getElementById('nameInput');
 const surnameInputElement = document.getElementById('surnameInput');
+const emailInputElement = document.getElementById('emailInput');
+const phoneInputElement = document.getElementById('phoneNumInput');
 
 nameInputElement.addEventListener('input', () => {
   let formNameElement = document.getElementById('formName');
@@ -13,6 +15,17 @@ surnameInputElement.addEventListener('input', () => {
   formSurnameElement.innerHTML = surnameInputElement.value;
 });
 
+emailInputElement.addEventListener('input', () => {
+  let formEmailElement = document.getElementById('formEmail');
+  validateEmailInput();
+  formEmailElement.innerHTML = emailInputElement.value;
+});
+
+phoneInputElement.addEventListener('input', () => {
+  let formPhoneElement = document.getElementById('formNumber');
+  validatePhoneInput();
+  formPhoneElement.innerHTML = phoneInputElement.value;
+});
 function validateNameInput() {
   let nameInputIsValid = true;
   let nameInputValue = nameInputElement.value.trim();
@@ -88,4 +101,72 @@ function validateSurnameInput() {
     );
   }
   return surnameInputIsValid;
+}
+
+function validateEmailInput() {
+  let emailInputIsValid = true;
+  let emailInputValue = emailInputElement.value.trim();
+
+  const emailErrorImageElement = document.getElementById('emailErrorImg');
+  if (!isFilled(emailInputValue) || !lengthIsLonger(emailInputValue, 2)) {
+    emailInputIsValid = false;
+    emailInputElement.classList.remove('validatedCheckLargeInputs');
+    emailErrorImageElement.setAttribute(
+      'src',
+      './assets/icons/error-warning.svg'
+    );
+    setError(
+      emailInputElement,
+      'უნდა მთავრდებოდეს @redberry.ge-თი',
+      'emailLabel'
+    );
+  } else if (!redberryEmailRegex.test(emailInputValue)) {
+    emailInputIsValid = false;
+    emailInputElement.classList.remove('validatedCheckLargeInputs');
+    emailErrorImageElement.setAttribute(
+      'src',
+      './assets/icons/error-warning.svg'
+    );
+    setError(
+      emailInputElement,
+      'უნდა მთავრდებოდეს @redberry.ge-თი',
+      'emailLabel'
+    );
+  } else {
+    emailErrorImageElement.removeAttribute('src');
+    emailInputElement.classList.add('validatedCheckLargeInputs');
+    setSuccess(
+      emailInputElement,
+      'უნდა მთავრდებოდეს @redberry.ge-თი',
+      'emailLabel'
+    );
+  }
+  return emailInputIsValid;
+}
+
+function validatePhoneInput() {
+  let phoneInputIsValid = true;
+  const phoneErrorImageElement = document.getElementById('phoneErrorImg');
+  let phoneInputValue = phoneInputElement.value.trim();
+  if (!phoneNumRegexWithspaces.test(phoneInputValue)) {
+    phoneInputIsValid = false;
+    phoneErrorImageElement.setAttribute(
+      'src',
+      './assets/icons/error-warning.svg'
+    );
+    phoneInputElement.classList.remove('validatedCheckLargeInputs');
+    setError(
+      phoneInputElement,
+      'უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს',
+      'phoneLabel'
+    );
+  } else {
+    phoneErrorImageElement.removeAttribute('src');
+    phoneInputElement.classList.add('validatedCheckLargeInputs');
+    setSuccess(
+      phoneInputElement,
+      'უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს',
+      'phoneLabel'
+    );
+  }
 }
