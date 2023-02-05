@@ -3,6 +3,7 @@ const imageDisplay = document.getElementById('displayImage');
 const uploadPicErrorImg = document.getElementById('uploadPicErrorImg');
 let uploadedImage = '';
 let pictureIsLoaded = false;
+
 imageInput.addEventListener('change', function () {
   const reader = new FileReader();
   reader.addEventListener('load', () => {
@@ -16,7 +17,7 @@ imageInput.addEventListener('change', function () {
 // input validation
 
 imageInput.addEventListener('change', () => {
-  console.log(validateImageInput());
+  validateImageInput();
 });
 
 function validateImageInput() {

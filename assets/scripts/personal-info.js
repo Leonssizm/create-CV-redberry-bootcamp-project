@@ -2,30 +2,64 @@ const nameInputElement = document.getElementById('nameInput');
 const surnameInputElement = document.getElementById('surnameInput');
 const emailInputElement = document.getElementById('emailInput');
 const phoneInputElement = document.getElementById('phoneNumInput');
+const aboutInputElement = document.getElementById('aboutInput');
 
-nameInputElement.addEventListener('input', () => {
+// EventListeners for runtime validation
+nameInputElement.addEventListener('input', handleNameInput);
+surnameInputElement.addEventListener('input', handleSurnameInput);
+aboutInputElement.addEventListener('input', handleAboutInput);
+emailInputElement.addEventListener('input', handleEmailInput);
+phoneInputElement.addEventListener('input', handlePhoneInput);
+
+// functions to check, update & record input information
+function handleNameInput() {
   let formNameElement = document.getElementById('formName');
   validateNameInput();
   formNameElement.innerHTML = nameInputElement.value;
-});
-
-surnameInputElement.addEventListener('input', () => {
+}
+function handleSurnameInput() {
   let formSurnameElement = document.getElementById('formSurname');
   validateSurnameInput();
   formSurnameElement.innerHTML = surnameInputElement.value;
-});
+}
+function handleAboutInput() {
+  let formAboutMeElement = document.getElementById('formAbout');
+  let aboutMeFormLabel = document.getElementById('aboutMeLabel');
+  formAboutMeElement.innerHTML = aboutInputElement.value;
 
-emailInputElement.addEventListener('input', () => {
+  if (aboutInputElement.value.length > 0) {
+    aboutMeFormLabel.innerHTML = 'ჩემ შესახებ';
+  } else {
+    aboutMeFormLabel.innerHTML = '';
+  }
+}
+function handleEmailInput() {
+  let formEmailSignImg = document.getElementById('formEmailSign');
   let formEmailElement = document.getElementById('formEmail');
   validateEmailInput();
   formEmailElement.innerHTML = emailInputElement.value;
-});
 
-phoneInputElement.addEventListener('input', () => {
+  if (emailInputElement.value.length > 0) {
+    formEmailSignImg.setAttribute('src', './assets/icons/atSign.svg');
+  } else {
+    formEmailSignImg.removeAttribute('src');
+  }
+}
+
+function handlePhoneInput() {
+  let formTelephoneSignImg = document.getElementById('formTelephoneSign');
   let formPhoneElement = document.getElementById('formNumber');
   validatePhoneInput();
   formPhoneElement.innerHTML = phoneInputElement.value;
-});
+
+  if (phoneInputElement.value.length > 0) {
+    formTelephoneSignImg.setAttribute('src', './assets/icons/phone.svg');
+  } else {
+    formTelephoneSignImg.removeAttribute('src');
+  }
+}
+
+// Validation Functions:
 function validateNameInput() {
   let nameInputIsValid = true;
   let nameInputValue = nameInputElement.value.trim();

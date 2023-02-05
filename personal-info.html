@@ -44,7 +44,7 @@
                 <p class="imgInputLabel">პირადი ფოტოს ატვირთვა</p>
                 <label class="imgUploadBtn">
                     ატვირთვა
-                    <input type="file" id="imageInput" class="imageInput" accept="image/png, image/jpg">
+                    <input type="file" id="imageInput" class="imageInput" accept="image/*">
                 </label>
                 <img id="uploadPicErrorImg">
             </div>
@@ -82,16 +82,28 @@
                 <div class="name-surname">
                     <h1 id="formName"></h1>
                     <h1 id="formSurname"></h1>
-
                 </div>
                 <div class="email-phone">
-                    <h3 id="formEmail"></h3>
-                    <h3 id="formNumber"></h3>
+                    <div class="formEmailContainer">
+                        <img id="formEmailSign">
+                        <h3 id="formEmail"></h3>
+                    </div>
+                    <div class="formNumberContainer">
+                        <img id="formTelephoneSign">
+                        <h3 id="formNumber"></h3>
+                    </div>
+                </div>
+                <div class="aboutMe">
+                    <h2 id="aboutMeLabel"></h2>
+                    <p id="formAbout"></p>
                 </div>
             </div>
             <div class="picture-container">
                 <div id="displayImage"></div>
             </div>
+        </div>
+        <div class="footer">
+            <img src="./assets/icons/sparkle.svg" alt="sparkle">
         </div>
     </div>
 </body>

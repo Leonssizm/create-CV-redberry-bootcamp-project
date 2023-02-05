@@ -2,6 +2,7 @@ body,
 html {
   margin: 0;
   display: flex;
+  /* overflow: hidden; */
 }
 @font-face {
   font-family: 'Helvetica Neue';
@@ -113,6 +114,7 @@ label,
   background: #ffffff;
   border: 1px solid #bcbcbc;
   border-radius: 4px;
+  white-space: normal;
 }
 .nameInput::placeholder,
 .surnameInput::placeholder {
@@ -175,6 +177,7 @@ label,
   background: #ffffff;
   border: 1px solid #bcbcbc;
   border-radius: 4px;
+  white-space: normal;
 }
 .aboutInput::placeholder {
   font-family: 'Helvetica Neue';
@@ -201,6 +204,7 @@ label,
   background: #ffffff;
   border: 1px solid #bcbcbc;
   border-radius: 4px;
+  white-space: pre-line;
 }
 .email {
   margin-bottom: 29px;
@@ -237,17 +241,24 @@ label,
 
 /* CV Display */
 .form-info-display {
-  margin: 68px 0 0 80px;
+  background: #ffffff;
+  width: 822px;
 }
 .info-picture-wrapper {
   display: flex;
 }
+.info-container {
+  margin-left: 80px;
+}
 .name-surname {
+  margin-top: 68px;
+  margin-right: 25px;
   display: flex;
 }
 .name-surname h1:first-child {
   margin-right: 20px;
 }
+
 .name-surname h1 {
   font-family: 'Helvetica Neue';
   font-style: normal;
@@ -256,7 +267,52 @@ label,
   line-height: 42px;
   color: #f93b1d;
 }
+.email-phone {
+  margin-top: 17px;
+}
+#formEmail,
+#formNumber {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #1a1a1a;
+}
 
+.aboutMe {
+  margin-top: 34px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: lowercase;
+  color: #000000;
+}
+#aboutMeLabel {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.formEmailContainer,
+.formNumberContainer {
+  display: flex;
+}
+.formEmailContainer h3,
+.formNumberContainer h3 {
+  margin: 0;
+}
+.formEmailContainer img,
+.formNumberContainer img {
+  margin-right: 10px;
+}
+.formNumberContainer {
+  margin-top: 10px;
+}
 /* CV picture */
 
 #displayImage {
@@ -265,7 +321,13 @@ label,
   border-radius: 50%;
   background-position: center;
   background-size: cover;
-  margin: 19px 75px 0 133px;
+  margin: 48px 75px 0 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-left: 78px;
 }
 /* stylings for validation */
 .input-control input:focus {
