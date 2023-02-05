@@ -10,6 +10,7 @@ imageInput.addEventListener('change', function () {
     uploadedImage = reader.result;
     imageDisplay.style.backgroundImage = `url(${uploadedImage})`;
     localStorage.setItem('personal-image', reader.result);
+    sessionStorage.setItem('personal-image', reader.result);
   });
   reader.readAsDataURL(this.files[0]);
 });

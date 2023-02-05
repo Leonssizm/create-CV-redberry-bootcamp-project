@@ -59,12 +59,10 @@ function handlePhoneInput() {
   }
 }
 
-// Validation Functions:
+// input Validation Functions:
 function validateNameInput() {
   let nameInputIsValid = true;
   let nameInputValue = nameInputElement.value.trim();
-
-  //   error image elements
   const nameErrorImageElement = document.getElementById('nameErrorImg');
   if (!isFilled(nameInputValue) || !lengthIsLonger(nameInputValue, 2)) {
     nameInputIsValid = false;
@@ -101,8 +99,6 @@ function validateNameInput() {
 function validateSurnameInput() {
   let surnameInputIsValid = true;
   let surnameInputValue = surnameInputElement.value.trim();
-
-  //   error image elements
   const surnameErrorImageElement = document.getElementById('surnameErrorImg');
   if (!isFilled(surnameInputValue) || !lengthIsLonger(surnameInputValue, 2)) {
     surnameInputIsValid = false;
@@ -203,4 +199,45 @@ function validatePhoneInput() {
       'phoneLabel'
     );
   }
+  return phoneInputIsValid;
 }
+
+// when page reloads, data is saved;
+window.onbeforeunload = function saveDataBeforeRefresh() {
+  sessionStorage.setItem('name', nameInputElement.value);
+  sessionStorage.setItem('surname', surnameInputElement.value);
+  sessionStorage.setItem('about', aboutInputElement.value);
+  sessionStorage.setItem('email', emailInputElement.value);
+  sessionStorage.setItem('phone', phoneInputElement.value);
+};
+
+window.onload = function getSavedInfoForInputs() {
+  let name = sessionStorage.getItem('name');
+  let surname = sessionStorage.getItem('surname');
+  let about = sessionStorage.getItem('about');
+  let email = sessionStorage.getItem('email');
+  let phone = sessionStorage.getItem('phone');
+
+  nameInputElement.value = name;
+  surnameInputElement.value = surname;
+  aboutInputElement.value = about;
+  phoneInputElement.value = phone;
+  emailInputElement.value = email;
+  let image = sessionStorage.getItem('personal-image');
+  imageDisplay.style.backgroundImage = `url(${image})`;
+  if (sessionStorage.getItem('phone') !== null) {
+    handleNameInput();
+    handleSurnameInput();
+    handleAboutInput();
+    handleEmailInput();
+    handlePhoneInput();
+
+    if (sessionStorage.getItem('personal-image') !== null) {
+      validateImageInput();
+      uploadPicErrorImg.removeAttribute('src');
+      uploadPicErrorImg.setAttribute('src', './assets/icons/success-check.svg');
+    } else {
+      uploadPicErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
+    }
+  }
+};
