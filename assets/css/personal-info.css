@@ -97,6 +97,9 @@ label,
 #phoneErrorImg {
   margin-left: 13px;
 }
+#emailErrorImg {
+  margin-bottom: 25px;
+}
 
 .name,
 .surname,
@@ -117,14 +120,15 @@ label,
   white-space: normal;
 }
 .nameInput::placeholder,
-.surnameInput::placeholder {
+.surnameInput::placeholder,
+.aboutInput::placeholder,
+.emailInput::placeholder,
+.phoneNumInput::placeholder {
   font-family: 'Helvetica Neue';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
-  display: flex;
-  align-items: center;
   color: rgba(0, 0, 0, 0.6);
 }
 .validatedCheck {
@@ -179,14 +183,6 @@ label,
   border-radius: 4px;
   white-space: normal;
 }
-.aboutInput::placeholder {
-  font-family: 'Helvetica Neue';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-  color: rgba(0, 0, 0, 0.6);
-}
 /* email and phone number */
 
 .email-number-wrapper {
@@ -230,6 +226,7 @@ label,
   line-height: 20px;
   letter-spacing: 0.08em;
   color: #ffffff;
+  border-color: transparent;
 }
 
 .validatedCheckLargeInputs {

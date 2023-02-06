@@ -17,14 +17,17 @@ imageInput.addEventListener('change', function () {
 
 // input validation
 
-imageInput.addEventListener('change', () => {
+imageInput.addEventListener('input', () => {
   validateImageInput();
 });
 
 function validateImageInput() {
   let imageInputIsValid = true;
 
-  if (imageInput.value == '') {
+  if (
+    localStorage.getItem('personal-image') === null &&
+    imageInput.value === ''
+  ) {
     uploadPicErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
     imageInputIsValid = false;
   } else {
