@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/experience-info.css">
+    <script src="./assets/scripts/validations.js" defer></script>
+    <script src="./assets/scripts/experience-info.js" defer></script>
+    <title>Experience Info</title>
+</head>
+
+<body>
+    <div class="form">
+        <div class="header-backBtn-wrapper">
+            <a class="backBtn" href="./index.html"><img src="./assets/icons/backToFirstPageArr.svg" alt="go back"></a>
+            <div>
+                <header>
+                    <div class="header-info-container">
+                        <h1 id="experienceInfoHeader"></h1>
+                        <p>2/3</p>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div class="position-employer-wrapper">
+            <div class="position-container">
+                <div class="position input-control">
+                    <label id="positionLabel">თანამდებობა</label>
+                    <input type="text" id="positionInput" class="positionInput"
+                        placeholder="დეველოპერი, დიზაინერი, ა.შ">
+                    <div class="error">მინიმუმ 2 სიმბოლო</div>
+                </div>
+                <img id="positionErrorImg">
+            </div>
+            <div class="employer-container">
+                <div class="employer input-control">
+                    <label id="employerLabel">დამსაქმებელი</label>
+                    <input type="text" id="employerInput" class="employerInput" placeholder="დამსაქმებელი">
+                    <div class="error">მინიმუმ 2 სიმბოლო</div>
+                </div>
+                <img id="employerErrorImg">
+            </div>
+        </div>
+        <div class="dates-wrapper">
+            <div class="startDate input-control">
+                <label id="startDateLabel">დაწყების რიცხვი</label>
+                <input type="date" id="startDateInput" class="startDateInput">
+                <div class="error"></div>
+            </div>
+            <img id="startDateErrorImg">
+            <div class="endDate input-control">
+                <label id="endDateLabel">დამთავრების რიცხვი</label>
+                <input type="date" id="endDateInput" class="endDateInput">
+                <div class="error"></div>
+            </div>
+            <img id="endDateErrorImg">
+        </div>
+        <div class="description-wrapper">
+            <div class="description">
+                <label>აღწერა</label>
+                <textarea type="text" id="descriptionInput" class="descriptionInput"
+                    placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+            </div>
+        </div>
+        <div class="line-wrapper">
+            <div class="line"></div>
+        </div>
+        <div class="generateExperienceForm-wrapper">
+            <button class="generateNewFormBtn" id="generateNewFormBtn">მეტი გამოცდილების დამატება</button>
+        </div>
+        <div class="navigation-buttons-wrapper">
+            <div class="backBtn">
+                <button type="button" class="PreviousPageBtn" id="backToPreviousPageBtn"></button>
+            </div>
+            <div class="nextPageBtn">
+                <button type="button" class="nextPageButton" id="nextPageButton"></button>
+            </div>
+        </div>
+    </div>
+    <div class="form-info-display">
+        <div class="info-picture-wrapper">
+            <div class="info-container">
+                <div class="name-surname">
+                    <h1 id="formName"></h1>
+                    <h1 id="formSurname"></h1>
+                </div>
+                <div class="email-phone">
+                    <div class="formEmailContainer">
+                        <img id="formEmailSign">
+                        <h3 id="formEmail"></h3>
+                    </div>
+                    <div class="formNumberContainer">
+                        <img id="formTelephoneSign">
+                        <h3 id="formNumber"></h3>
+                    </div>
+                </div>
+                <div class="aboutMe">
+                    <h2 id="aboutMeLabel"></h2>
+                    <p id="formAbout"></p>
+                </div>
+            </div>
+            <div class="picture-container">
+                <div id="displayImage"></div>
+            </div>
+
+        </div>
+        <div class="separator-line-wrapper">
+            <div class="infoDisplaySeparator"></div>
+        </div>
+        <div class="footer">
+            <img src="./assets/icons/sparkle.svg" alt="sparkle">
+        </div>
+    </div>
+    <div id="formLineDisplay"></div>
+</body>
+
+</html>

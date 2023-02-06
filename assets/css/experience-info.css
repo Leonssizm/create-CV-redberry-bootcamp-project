@@ -1,0 +1,309 @@
+body,
+html {
+  margin: 0;
+  display: flex;
+  /* overflow: hidden; */
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeue.ttc');
+}
+
+/* form stylings */
+.form {
+  width: 1098px;
+  background: #f9f9f9;
+}
+.backBtn {
+  margin-right: 77px;
+  width: 9.21px;
+  height: 16px;
+  font-weight: 500;
+}
+.header-backBtn-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 57px 0px 0 62px;
+}
+.header-info-container {
+  display: flex;
+  border-bottom: 1px solid #1a1a1a;
+}
+.header-info-container h1 {
+  width: 179px;
+  height: 29px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #1a1a1a;
+  margin-right: 592px;
+  margin-bottom: 12px;
+}
+.header-info-container p {
+  width: 29px;
+  height: 24px;
+  top: 49px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+/* CV display (previous page - personal info version) */
+.form-info-display {
+  background: #ffffff;
+  width: 822px;
+}
+.info-picture-wrapper {
+  display: flex;
+}
+.info-container {
+  margin-left: 80px;
+}
+.name-surname {
+  margin-top: 68px;
+  margin-right: 25px;
+  display: flex;
+}
+.name-surname h1:first-child {
+  margin-right: 20px;
+}
+
+.name-surname h1 {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+  color: #f93b1d;
+}
+.email-phone {
+  margin-top: 17px;
+}
+#formEmail,
+#formNumber {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #1a1a1a;
+}
+
+.aboutMe {
+  margin-top: 34px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: lowercase;
+  color: #000000;
+}
+#aboutMeLabel {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.formEmailContainer,
+.formNumberContainer {
+  display: flex;
+}
+.formEmailContainer h3,
+.formNumberContainer h3 {
+  margin: 0;
+}
+.formEmailContainer img,
+.formNumberContainer img {
+  margin-right: 10px;
+}
+.formNumberContainer {
+  margin-top: 10px;
+}
+
+/* CV picture */
+
+#displayImage {
+  width: 246px;
+  height: 246px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  margin: 48px 75px 0 0;
+}
+.separator-line-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.infoDisplaySeparator {
+  width: 662px;
+  height: 0px;
+  border: 1px solid #c8c8c8;
+}
+
+/* form inputs */
+.position-employer-wrapper {
+  margin: 77px 0 0 150px;
+}
+label {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin-bottom: 8px;
+}
+.employer-container,
+.position-container {
+  display: flex;
+}
+.positionInput,
+.employerInput {
+  width: 766px;
+  height: 21px;
+  padding: 13px 16px 14px 16px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  white-space: pre-line;
+}
+.positionInput::placeholder,
+.employerInput::placeholder,
+.descriptionInput::placeholder {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.position {
+  margin-bottom: 31px;
+}
+.error {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #2e2e2e;
+  margin-top: 8px;
+}
+
+/* Dates */
+.dates-wrapper {
+  margin-top: 31px;
+  display: flex;
+  justify-content: center;
+}
+.startDateInput,
+.endDateInput {
+  width: 355px;
+  height: 48px;
+  padding-left: 16px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  white-space: normal;
+}
+.startDate {
+  margin-right: 19px;
+}
+.endDate {
+  margin-left: 19px;
+}
+#startDateErrorImg,
+#endDatePicErrorImg {
+  margin-left: 10px;
+}
+
+/* Description */
+.description-wrapper {
+  margin: 33px 0 0 150px;
+}
+
+.descriptionInput {
+  width: 782px;
+  height: 34px;
+  padding: 13px 0 69px 16px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  white-space: normal;
+}
+.line-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.line {
+  margin-top: 58px;
+  width: 798px;
+  height: 0;
+  border: 1px solid #c1c1c1;
+}
+
+/* Buttons - generate new form, previous page and next page */
+.generateExperienceForm-wrapper {
+  margin: 45px 0 0 150px;
+  display: flex;
+}
+.generateNewFormBtn {
+  width: 289px;
+  height: 48px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  background: #62a1eb;
+  border-radius: 4px;
+  border-color: transparent;
+}
+.navigation-buttons-wrapper {
+  margin: 115px 150px 65px 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.PreviousPageBtn {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  padding: 18px 60px 18px 60px;
+  background: #6b40e3;
+  border-radius: 4px;
+  border-color: transparent;
+}
+.nextPageButton {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  padding: 18px 60px 18px 60px;
+  background: #6b40e3;
+  border-radius: 4px;
+  border-color: transparent;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-left: 78px;
+}
