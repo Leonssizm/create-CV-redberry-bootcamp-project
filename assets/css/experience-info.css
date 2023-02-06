@@ -164,6 +164,12 @@ label {
   color: #000000;
   margin-bottom: 8px;
 }
+.validatedCheckLargeInputs {
+  background-image: url(../icons/success-check.svg);
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  background-position: 770px;
+}
 .employer-container,
 .position-container {
   display: flex;
@@ -209,19 +215,30 @@ label {
 }
 .startDateInput,
 .endDateInput {
-  width: 355px;
-  height: 48px;
-  padding-left: 16px;
+  width: 323px;
+  height: 21px;
+  padding: 13px 16px 14px 16px;
   background: #ffffff;
   border: 1px solid #bcbcbc;
   border-radius: 4px;
   white-space: normal;
 }
+.dateInputLogo {
+  background-image: url(../icons/calendar.svg);
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  background-position: 325px;
+}
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  height: 20px;
+  width: 18px;
+}
 .startDate {
-  margin-right: 19px;
+  margin-right: 36px;
 }
 .endDate {
-  margin-left: 19px;
+  margin-left: 36px;
 }
 #startDateErrorImg,
 #endDatePicErrorImg {
@@ -306,4 +323,64 @@ label {
   position: absolute;
   bottom: 0;
   margin-left: 78px;
+}
+
+/* Experience info form stylings */
+
+.experienceInfoForm {
+  margin: 24px 0 0 80px;
+}
+.experienceInfoHeader {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.positionEmployeeForm {
+  margin-top: 15px;
+  display: flex;
+}
+#formPosition,
+#formEmployer {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1a1a;
+}
+#formEmployer {
+  margin-left: 7px;
+}
+
+/* classes for validation */
+
+.validatedCheckLargeInputs {
+  background-image: url(../icons/success-check.svg);
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  background-position: 770px;
+}
+
+.input-control input:focus {
+  outline: 0;
+}
+.input-control.success input {
+  border-color: #98e37e;
+}
+.input-control.error input {
+  border-color: #ef5050;
+}
+.input-control.error {
+  color: #ef5050;
+  font-size: 15px;
+  margin-top: 0;
+}
+#positionErrorImg {
+  margin: 0 0 30px 14px;
+}
+#employerErrorImg {
+  margin: 0 0 0 14px;
 }

@@ -1,9 +1,76 @@
+const positionInputElement = document.getElementById('positionInput');
+const employerInputElement = document.getElementById('employerInput');
+
 let personalInfoHeader = document.getElementById('experienceInfoHeader');
 let previousPageButton = document.getElementById('backToPreviousPageBtn');
 let nextPageButton = document.getElementById('nextPageButton');
 personalInfoHeader.innerHTML = 'გამოცდილება'.toUpperCase();
 previousPageButton.innerHTML = 'უკან'.toUpperCase();
 nextPageButton.innerHTML = 'შემდეგი'.toUpperCase();
+// EventListeners for runtime validation
+
+positionInputElement.addEventListener('input', handlePositionInput);
+employerInputElement.addEventListener('input', handleEmployerInput);
+// functions to check, update & record input information
+function handlePositionInput() {
+  let formPosition = document.getElementById('formPosition');
+  validatePositionInput();
+  if (positionInputElement.value.length > 0) {
+    formPosition.innerHTML = positionInputElement.value + ',';
+  } else {
+    formPosition.innerHTML = '';
+  }
+}
+function handleEmployerInput() {
+  let formEmployer = document.getElementById('formEmployer');
+  validateEmployerInput();
+  formEmployer.innerHTML = employerInputElement.value;
+}
+
+// input Validation Functions:
+
+function validatePositionInput() {
+  let positionInputIsValid = true;
+  let positionInputValue = positionInputElement.value.trim();
+  const positionErrorImgElement = document.getElementById('positionErrorImg');
+  if (!isFilled(positionInputValue) || !lengthIsLonger(positionInputValue, 2)) {
+    positionInputIsValid = false;
+    positionInputElement.classList.remove('validatedCheckLargeInputs');
+    positionErrorImgElement.setAttribute(
+      'src',
+      './assets/icons/error-warning.svg'
+    );
+    setError(positionInputElement, 'მინიმუმ 2 სიმბოლო', 'positionLabel');
+  } else {
+    positionErrorImgElement.removeAttribute('src');
+    positionInputElement.classList.add('validatedCheckLargeInputs');
+    setSuccess(positionInputElement, 'მინიმუმ 2 სიმბოლო', 'positionLabel');
+  }
+
+  return positionInputIsValid;
+}
+
+function validateEmployerInput() {
+  let employerInputIsValid = true;
+  let employerInputValue = employerInputElement.value.trim();
+  const employerErrorImgElement = document.getElementById('employerErrorImg');
+  if (!isFilled(employerInputValue) || !lengthIsLonger(employerInputValue, 2)) {
+    employerInputIsValid = false;
+    employerInputElement.classList.remove('validatedCheckLargeInputs');
+    employerErrorImgElement.setAttribute(
+      'src',
+      './assets/icons/error-warning.svg'
+    );
+    setError(employerInputElement, 'მინიმუმ 2 სიმბოლო', 'employerLabel');
+  } else {
+    employerErrorImgElement.removeAttribute('src');
+    employerInputElement.classList.add('validatedCheckLargeInputs');
+    setSuccess(employerInputElement, 'მინიმუმ 2 სიმბოლო', 'employerLabel');
+  }
+
+  return employerInputIsValid;
+}
+
 // When page is loaded, display part of previously Filled resume
 
 let formNameElement = document.getElementById('formName');
