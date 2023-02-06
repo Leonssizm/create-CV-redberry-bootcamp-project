@@ -3,7 +3,11 @@ const surnameInputElement = document.getElementById('surnameInput');
 const emailInputElement = document.getElementById('emailInput');
 const phoneInputElement = document.getElementById('phoneNumInput');
 const aboutInputElement = document.getElementById('aboutInput');
+const nextPageButton = document.getElementById('nextPageButton');
+let personalInfoHeader = document.getElementById('personalInfoHeader');
 
+personalInfoHeader.innerHTML = 'პირადი ინფო'.toUpperCase();
+nextPageButton.innerHTML = 'შემდეგი'.toUpperCase();
 // EventListeners for runtime validation
 nameInputElement.addEventListener('input', handleNameInput);
 surnameInputElement.addEventListener('input', handleSurnameInput);
@@ -15,20 +19,19 @@ phoneInputElement.addEventListener('input', handlePhoneInput);
 function handleNameInput() {
   let formNameElement = document.getElementById('formName');
   validateNameInput();
-  formNameElement.innerHTML = nameInputElement.value;
+  formNameElement.innerHTML = nameInputElement.value.toUpperCase();
 }
 function handleSurnameInput() {
   let formSurnameElement = document.getElementById('formSurname');
   validateSurnameInput();
-  formSurnameElement.innerHTML = surnameInputElement.value;
+  formSurnameElement.innerHTML = surnameInputElement.value.toUpperCase();
 }
 function handleAboutInput() {
   let formAboutMeElement = document.getElementById('formAbout');
   let aboutMeFormLabel = document.getElementById('aboutMeLabel');
   formAboutMeElement.innerHTML = aboutInputElement.value;
-
   if (aboutInputElement.value.length > 0) {
-    aboutMeFormLabel.innerHTML = 'ჩემ შესახებ';
+    aboutMeFormLabel.innerHTML = 'ჩემ შესახებ'.toUpperCase();
   } else {
     aboutMeFormLabel.innerHTML = '';
   }
@@ -201,7 +204,30 @@ function validatePhoneInput() {
   }
   return phoneInputIsValid;
 }
-
+// When form is valid, data is saved and onto the next page!
+nextPageButton.addEventListener('click', function () {
+  if (
+    validateNameInput() &&
+    validateSurnameInput() &&
+    validateImageInput() &&
+    validateEmailInput() &&
+    validatePhoneInput()
+  ) {
+    window.localStorage.setItem(
+      'personal-info',
+      JSON.stringify({
+        name: nameInputElement.value,
+        surname: surnameInputElement.value,
+        email: emailInputElement.value,
+        phone_number: phoneInputElement.value,
+        about_me: aboutInputElement.value,
+      })
+    );
+    window.location.href = './experience-info.html';
+  } else {
+    return;
+  }
+});
 // when page reloads, data is saved;
 window.onbeforeunload = function saveDataBeforeRefresh() {
   sessionStorage.setItem('name', nameInputElement.value);
@@ -231,13 +257,6 @@ window.onload = function getSavedInfoForInputs() {
     handleAboutInput();
     handleEmailInput();
     handlePhoneInput();
-
-    if (sessionStorage.getItem('personal-image') !== null) {
-      validateImageInput();
-      uploadPicErrorImg.removeAttribute('src');
-      uploadPicErrorImg.setAttribute('src', './assets/icons/success-check.svg');
-    } else {
-      uploadPicErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
-    }
+    validateImageInput();
   }
 };
