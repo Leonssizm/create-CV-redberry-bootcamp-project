@@ -5,7 +5,6 @@ const phoneInputElement = document.getElementById('phoneNumInput');
 const aboutInputElement = document.getElementById('aboutInput');
 const nextPageButton = document.getElementById('nextPageButton');
 let personalInfoHeader = document.getElementById('personalInfoHeader');
-
 personalInfoHeader.innerHTML = 'პირადი ინფო'.toUpperCase();
 nextPageButton.innerHTML = 'შემდეგი'.toUpperCase();
 // EventListeners for runtime validation
@@ -26,12 +25,13 @@ function handleSurnameInput() {
   validateSurnameInput();
   formSurnameElement.innerHTML = surnameInputElement.value.toUpperCase();
 }
+
 function handleAboutInput() {
   let formAboutMeElement = document.getElementById('formAbout');
-  let aboutMeFormLabel = document.getElementById('aboutMeLabel');
+  let aboutMeFormLabel = document.getElementById('aboutMeFormLabel');
   formAboutMeElement.innerHTML = aboutInputElement.value;
   if (aboutInputElement.value.length > 0) {
-    aboutMeFormLabel.innerHTML = 'ჩემ შესახებ'.toUpperCase();
+    aboutMeFormLabel.innerHTML = 'შესახებ'.toUpperCase();
   } else {
     aboutMeFormLabel.innerHTML = '';
   }

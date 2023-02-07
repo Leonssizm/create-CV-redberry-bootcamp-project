@@ -58,15 +58,69 @@
             <img id="endDateErrorImg">
         </div>
         <div class="description-wrapper">
-            <div class="description">
-                <label>აღწერა</label>
+            <div class="description input-control">
+                <label id="descriptionLabel">აღწერა</label>
                 <textarea type="text" id="descriptionInput" class="descriptionInput"
                     placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+                <div class="error"></div>
             </div>
+            <img id="descriptionErrorImg">
         </div>
         <div class="line-wrapper">
             <div class="line"></div>
         </div>
+        <div id="container">
+
+        </div>
+        <!-- New Form -->
+        <template id="newFormTemplate" class="newFormContainer">
+            <div class="position-employer-wrapper">
+                <div class="position-container">
+                    <div class="position input-control">
+                        <label id="positionLabel">თანამდებობა</label>
+                        <input type="text" id="positionInput" class="positionInput"
+                            placeholder="დეველოპერი, დიზაინერი, ა.შ">
+                        <div class="error">მინიმუმ 2 სიმბოლო</div>
+                    </div>
+                    <img id="positionErrorImg">
+                </div>
+                <div class="employer-container">
+                    <div class="employer input-control">
+                        <label id="employerLabel">დამსაქმებელი</label>
+                        <input type="text" id="employerInput" class="employerInput" placeholder="დამსაქმებელი">
+                        <div class="error">მინიმუმ 2 სიმბოლო</div>
+                    </div>
+                    <img id="employerErrorImg">
+                </div>
+            </div>
+            <div class="dates-wrapper">
+                <div class="startDate input-control">
+                    <label id="startDateLabel">დაწყების რიცხვი</label>
+                    <input type="date" id="startDateInput" class="startDateInput dateInputLogo">
+                    <div class="error"></div>
+                </div>
+                <img id="startDateErrorImg">
+                <div class="endDate input-control">
+                    <label id="endDateLabel">დამთავრების რიცხვი</label>
+                    <input type="date" id="endDateInput" class="endDateInput dateInputLogo">
+                    <div class="error"></div>
+                </div>
+                <img id="endDateErrorImg">
+            </div>
+            <div class="description-wrapper">
+                <div class="description">
+                    <label id="descriptionLabel">აღწერა</label>
+                    <textarea type="text" id="descriptionInput" class="descriptionInput"
+                        placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+                    <div class="error"></div>
+                </div>
+            </div>
+            <div class="line-wrapper">
+                <div class="line"></div>
+            </div>
+
+        </template>
+        <!--  -->
         <div class="generateExperienceForm-wrapper">
             <button class="generateNewFormBtn" id="generateNewFormBtn">მეტი გამოცდილების დამატება</button>
         </div>
@@ -109,11 +163,19 @@
         <div class="separator-line-wrapper">
             <div class="infoDisplaySeparator"></div>
         </div>
-        <div class="experienceInfoForm" id="experienceInFoForm">
-            <h1 class="experienceInfoHeader">გამოცდილება</h1>
+        <div class="experienceInfoForm" id="experienceInfoForm">
+            <h2 class="experienceInfoHeader" id="experienceFormInfoHeader"></h2>
             <div class="positionEmployeeForm">
                 <p id="formPosition"></p>
                 <p id="formEmployer"></p>
+            </div>
+            <div class="startEndDateForm">
+                <p id="formStartDate"></p>
+                <p id="dash"></p>
+                <p id="formEndDate"></p>
+            </div>
+            <div class="formDescription">
+                <p id="formDescription"></p>
             </div>
         </div>
         <div class="footer">
