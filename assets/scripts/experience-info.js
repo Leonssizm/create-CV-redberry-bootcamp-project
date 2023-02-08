@@ -6,10 +6,10 @@ const jobDescriptionInputElement = document.getElementById('descriptionInput');
 
 const generateNewFormBtn = document.getElementById('generateNewFormBtn');
 
-let personalInfoHeader = document.getElementById('experienceInfoHeader');
+let experienceInfoHeader = document.getElementById('experienceInfoHeader');
 let previousPageButton = document.getElementById('backToPreviousPageBtn');
 let nextPageButton = document.getElementById('nextPageButton');
-personalInfoHeader.innerHTML = 'გამოცდილება'.toUpperCase();
+experienceInfoHeader.innerHTML = 'გამოცდილება'.toUpperCase();
 previousPageButton.innerHTML = 'უკან'.toUpperCase();
 nextPageButton.innerHTML = 'შემდეგი'.toUpperCase();
 
@@ -187,10 +187,64 @@ formTelephoneSignImg.setAttribute('src', './assets/icons/phone.svg');
 let amountOfFormsGenerated = 0;
 let amountOfForms = JSON.parse(localStorage.getItem('amountOfFormsGenerated'));
 
-function generateNewForm() {
+function generateNewForm(index) {
   let template = document.getElementById('newFormTemplate');
   let clonedTemplate = template.content.cloneNode(true);
-  let positionInput = clonedTemplate.querySelector('#positionInput');
+
+  clonedTemplate.getElementById('positionInput_ID_PLACEHOLDER').id =
+    'positionInput_' + index;
+  clonedTemplate.getElementById('positionLabel_ID_PLACEHOLDER').id =
+    'positionLabel_' + index;
+  clonedTemplate.getElementById('positionErrorImg_ID_PLACEHOLDER').id =
+    'positionErrorImg_' + index;
+
+  clonedTemplate
+    .getElementById('positionInput_' + index)
+    .addEventListener('input', () => {
+      let clonedPositionInput = document.getElementById(
+        'positionInput_' + index
+      );
+      let clonedPositionInputValue = document.getElementById(
+        'positionInput_' + index
+      ).value;
+      let positionInputErrorImg = document.getElementById(
+        'positionErrorImg_' + index
+      );
+      localStorage.setItem(
+        'Form_' + index + '_position',
+        JSON.stringify({
+          positionId: index,
+          positionInputValue: clonedPositionInputValue,
+        })
+      );
+      if (
+        !isFilled(clonedPositionInputValue) ||
+        !lengthIsLonger(clonedPositionInputValue, 2)
+      ) {
+        positionInputErrorImg.style.marginBottom = '35px';
+        positionInputErrorImg.style.marginLeft = '35px';
+        positionInputErrorImg.setAttribute(
+          'src',
+          './assets/icons/error-warning.svg'
+        );
+        clonedPositionInput.classList.remove('validatedCheckLargeInputs');
+        setError(
+          clonedPositionInput,
+          'მინიმუმ 2 სიმბოლო',
+          'positionLabel_' + index
+        );
+      } else {
+        clonedPositionInput.classList.add('validatedCheckLargeInputs');
+        positionInputErrorImg.removeAttribute('src');
+        clonedPositionInput;
+        setSuccess(
+          clonedPositionInput,
+          'მინიმუმ 2 სიმბოლო',
+          'positionLabel_' + index
+        );
+      }
+    });
+
   const container = document.getElementById('container');
   container.appendChild(clonedTemplate);
 }
@@ -198,11 +252,16 @@ generateNewFormBtn.addEventListener('click', () => {
   amountOfFormsGenerated++;
   localStorage.setItem('amountOfFormsGenerated', amountOfFormsGenerated);
   generateNewForm();
+  window.location.reload();
 });
 
 window.onload = function () {
   amountOfFormsGenerated = amountOfForms;
   for (let i = 0; i < parseInt(amountOfForms); i++) {
-    generateNewForm();
+    generateNewForm(i + 1);
+    let position = JSON.parse(localStorage.getItem(`Form_${i + 1}_position`));
+    console.log(position.positionInputValue);
+    document.getElementById(`positionInput_${i + 1}`).value =
+      position.positionInputValue;
   }
 };

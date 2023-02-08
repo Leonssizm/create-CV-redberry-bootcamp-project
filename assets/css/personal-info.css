@@ -286,6 +286,7 @@ label,
   line-height: 22px;
   text-transform: lowercase;
   color: #000000;
+  word-break: break-word;
 }
 #aboutMeFormLabel {
   font-family: 'Helvetica Neue';

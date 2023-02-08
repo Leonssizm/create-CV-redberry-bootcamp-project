@@ -104,6 +104,7 @@ html {
   line-height: 22px;
   text-transform: lowercase;
   color: #000000;
+  word-break: break-word;
 }
 #aboutMeLabel {
   font-family: 'Helvetica Neue';
@@ -156,7 +157,7 @@ html {
 label {
   font-family: 'Helvetica Neue';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   line-height: 21px;
   display: flex;
@@ -277,7 +278,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   height: 48px;
   font-family: 'Helvetica Neue';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   line-height: 20px;
   color: #ffffff;
@@ -293,7 +294,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .PreviousPageBtn {
   font-family: 'Helvetica Neue';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.08em;
@@ -306,7 +307,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .nextPageButton {
   font-family: 'Helvetica Neue';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.08em;
@@ -338,27 +339,27 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .positionEmployeeForm {
   display: flex;
 }
-#formPosition,
-#formEmployer {
+.formPosition,
+.formEmployer {
   margin-top: 10px;
   font-family: 'Helvetica Neue';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   line-height: 20px;
   color: #1a1a1a;
   margin-bottom: 7px;
 }
-#formEmployer {
+.formEmployer {
   margin-left: 7px;
 }
 .startEndDateForm {
   display: flex;
 }
 
-#formStartDate,
-#formEndDate,
-#dash {
+.formStartDate,
+.formEndDate,
+.dash {
   margin: 0;
   font-family: 'Helvetica Neue';
   font-style: italic;
@@ -367,12 +368,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
   line-height: 19px;
   color: #919191;
 }
-#dash {
+.dash {
   margin: 0 5px 0 5px;
   display: flex;
   align-items: flex-start;
 }
-#formDescription {
+.formDescription {
   margin-top: 16px;
   font-family: 'Helvetica Neue';
   font-style: normal;
@@ -383,6 +384,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   white-space: normal;
   color: #000000;
   margin-right: 80px;
+  word-break: break-word;
 }
 /* classes for validation */
 
