@@ -58,6 +58,7 @@ html {
 
 .education-wrapper {
   margin: 77px 0 0 150px;
+  display: flex;
 }
 label {
   font-family: 'Helvetica Neue';
@@ -275,7 +276,20 @@ select option {
 }
 
 .aboutMe {
+  display: flex;
+  flex-direction: column;
+}
+#aboutMeFormLabel {
   margin-top: 34px;
+  margin-bottom: 0px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+#formAbout {
   font-family: 'Helvetica Neue';
   font-style: normal;
   font-weight: 400;
@@ -284,14 +298,6 @@ select option {
   text-transform: lowercase;
   color: #000000;
   word-break: break-word;
-}
-#aboutMeLabel {
-  font-family: 'Helvetica Neue';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  color: #f93b1d;
 }
 .formEmailContainer,
 .formNumberContainer {
@@ -396,4 +402,94 @@ select option {
   position: absolute;
   bottom: 0;
   margin-left: 78px;
+}
+/* Education Form Display */
+
+.educationInfoForm {
+  margin: 24px 0 0 80px;
+}
+.educationQualificationForm {
+  display: flex;
+}
+#educationFormInfoHeader {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.formEducation,
+.formQualification {
+  margin-top: 10px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1a1a;
+  margin-bottom: 7px;
+}
+
+.formEducationEndDate {
+  margin: 0;
+  font-family: 'Helvetica Neue';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #919191;
+}
+.formEducationDescription {
+  margin-top: 16px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: capitalize;
+  white-space: normal;
+  color: #000000;
+  margin-right: 80px;
+  word-break: break-word;
+}
+/* classes for validation */
+
+.validatedCheckLargeInputs {
+  background-image: url(../icons/success-check.svg);
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  background-position: 770px;
+}
+
+.input-control input:focus {
+  outline: 0;
+}
+.input-control.success input {
+  border-color: #98e37e;
+}
+.input-control.error input {
+  border-color: #ef5050;
+}
+.input-control.error {
+  color: #ef5050;
+  font-size: 15px;
+  margin-top: 0;
+}
+#positionErrorImg {
+  margin: 0 0 30px 14px;
+}
+#employerErrorImg {
+  margin: 0 0 0 14px;
+}
+#startDateErrorImg {
+  margin-top: 12px;
+  margin-right: 5px;
+}
+#endDateErrorImg {
+  margin-top: 12px;
+  margin-left: 10px;
+}
+#descriptionErrorImg {
+  margin-left: 10px;
 }
