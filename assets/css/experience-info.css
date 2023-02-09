@@ -299,7 +299,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   line-height: 20px;
   letter-spacing: 0.08em;
   color: #ffffff;
-  padding: 18px 60px 18px 60px;
+  padding: 14px 54px 14px 54px;
   background: #6b40e3;
   border-radius: 4px;
   border-color: transparent;
@@ -312,7 +312,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   line-height: 20px;
   letter-spacing: 0.08em;
   color: #ffffff;
-  padding: 18px 60px 18px 60px;
+  padding: 14px 54px 14px 54px;
   background: #6b40e3;
   border-radius: 4px;
   border-color: transparent;

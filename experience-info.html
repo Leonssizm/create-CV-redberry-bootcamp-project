@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/experience-info.css">
     <script src="./assets/scripts/validations.js" defer></script>
     <script src="./assets/scripts/experience-info.js" defer></script>
+    <script src="./assets/scripts/generateExperienceForm.js" defer></script>
     <title>Experience Info</title>
 </head>
 
@@ -86,34 +87,36 @@
                 </div>
                 <div class="employer-container">
                     <div class="employer input-control">
-                        <label id="employerLabel">დამსაქმებელი</label>
-                        <input type="text" id="employerInput" class="employerInput" placeholder="დამსაქმებელი">
+                        <label id="employerLabel_ID_PLACEHOLDER">დამსაქმებელი</label>
+                        <input type="text" id="employerInput_ID_PLACEHOLDER" class="employerInput"
+                            placeholder="დამსაქმებელი">
                         <div class="error">მინიმუმ 2 სიმბოლო</div>
                     </div>
-                    <img id="employerErrorImg">
+                    <img id="employerErrorImg_ID_PLACEHOLDER">
                 </div>
             </div>
             <div class="dates-wrapper">
                 <div class="startDate input-control">
-                    <label id="startDateLabel">დაწყების რიცხვი</label>
-                    <input type="date" id="startDateInput" class="startDateInput dateInputLogo">
+                    <label id="startDateLabel_ID_PLACEHOLDER">დაწყების რიცხვი</label>
+                    <input type="date" id="startDateInput_ID_PLACEHOLDER" class="startDateInput dateInputLogo">
                     <div class="error"></div>
                 </div>
-                <img id="startDateErrorImg">
+                <img id="startDateErrorImg_ID_PLACEHOLDER">
                 <div class="endDate input-control">
-                    <label id="endDateLabel">დამთავრების რიცხვი</label>
-                    <input type="date" id="endDateInput" class="endDateInput dateInputLogo">
+                    <label id="endDateLabel_ID_PLACEHOLDER">დამთავრების რიცხვი</label>
+                    <input type="date" id="endDateInput_ID_PLACEHOLDER" class="endDateInput dateInputLogo">
                     <div class="error"></div>
                 </div>
-                <img id="endDateErrorImg">
+                <img id="endDateErrorImg_ID_PLACEHOLDER">
             </div>
             <div class="description-wrapper">
                 <div class="description">
-                    <label id="descriptionLabel">აღწერა</label>
-                    <textarea type="text" id="descriptionInput" class="descriptionInput"
+                    <label id="descriptionLabel_ID_PLACEHOLDER">აღწერა</label>
+                    <textarea type="text" id="descriptionInput_ID_PLACEHOLDER" class="descriptionInput"
                         placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
                     <div class="error"></div>
                 </div>
+                <img id="descriptionErrorImg_ID_PLACEHOLDER">
             </div>
             <div class="line-wrapper">
                 <div class="line"></div>
@@ -178,6 +181,26 @@
                 <p id="formDescription" class="formDescription"></p>
             </div>
         </div>
+        <div id="displayFormContainer">
+            <!-- new form inputs dynamically display here -->
+        </div>
+        <template id="newExperienceInfoForm" class="newExperienceInfoForm">
+            <div class="experienceInfoForm" id="experienceInfoForm">
+                <h2 class="experienceInfoHeader" id="experienceFormInfoHeader"></h2>
+                <div class="positionEmployeeForm">
+                    <p id="formPosition_ID_PLACEHOLDER" class="formPosition"></p>
+                    <p id="formEmployer_ID_PLACEHOLDER" class="formEmployer"></p>
+                </div>
+                <div class="startEndDateForm">
+                    <p id="formStartDate_ID_PLACEHOLDER" class="formStartDate"></p>
+                    <p id="dash_ID_PLACEHOLDER" class="dash"></p>
+                    <p id="formEndDate_ID_PLACEHOLDER" class="formEndDate"></p>
+                </div>
+                <div class="formDescription">
+                    <p id="formDescription_ID_PLACEHOLDER" class="formDescription"></p>
+                </div>
+            </div>
+        </template>
         <div class="footer">
             <img src="./assets/icons/sparkle.svg" alt="sparkle">
         </div>

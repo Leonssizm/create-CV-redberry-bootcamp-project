@@ -143,7 +143,7 @@ function validateDescriptionInput() {
   let jobDescriptionInputIsValid = true;
   let descriptionValue = jobDescriptionInputElement.value;
   let descriptionErrorImg = document.getElementById('descriptionErrorImg');
-  if (!isFilled(descriptionValue) || !lengthIsLonger(descriptionValue, 1)) {
+  if (!isFilled(descriptionValue)) {
     jobDescriptionInputIsValid = false;
     jobDescriptionInputElement.style.borderColor = '#ef5050';
     descriptionErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
@@ -183,71 +183,10 @@ aboutMeFormLabel.innerHTML = 'ჩემ შესახებ'.toUpperCase();
 formEmailSignImg.setAttribute('src', './assets/icons/atSign.svg');
 formTelephoneSignImg.setAttribute('src', './assets/icons/phone.svg');
 
-// under construction: add new forms and persist
+// add new forms
 let amountOfFormsGenerated = 0;
 let amountOfForms = JSON.parse(localStorage.getItem('amountOfFormsGenerated'));
 
-function generateNewForm(index) {
-  let template = document.getElementById('newFormTemplate');
-  let clonedTemplate = template.content.cloneNode(true);
-
-  clonedTemplate.getElementById('positionInput_ID_PLACEHOLDER').id =
-    'positionInput_' + index;
-  clonedTemplate.getElementById('positionLabel_ID_PLACEHOLDER').id =
-    'positionLabel_' + index;
-  clonedTemplate.getElementById('positionErrorImg_ID_PLACEHOLDER').id =
-    'positionErrorImg_' + index;
-
-  clonedTemplate
-    .getElementById('positionInput_' + index)
-    .addEventListener('input', () => {
-      let clonedPositionInput = document.getElementById(
-        'positionInput_' + index
-      );
-      let clonedPositionInputValue = document.getElementById(
-        'positionInput_' + index
-      ).value;
-      let positionInputErrorImg = document.getElementById(
-        'positionErrorImg_' + index
-      );
-      localStorage.setItem(
-        'Form_' + index + '_position',
-        JSON.stringify({
-          positionId: index,
-          positionInputValue: clonedPositionInputValue,
-        })
-      );
-      if (
-        !isFilled(clonedPositionInputValue) ||
-        !lengthIsLonger(clonedPositionInputValue, 2)
-      ) {
-        positionInputErrorImg.style.marginBottom = '35px';
-        positionInputErrorImg.style.marginLeft = '35px';
-        positionInputErrorImg.setAttribute(
-          'src',
-          './assets/icons/error-warning.svg'
-        );
-        clonedPositionInput.classList.remove('validatedCheckLargeInputs');
-        setError(
-          clonedPositionInput,
-          'მინიმუმ 2 სიმბოლო',
-          'positionLabel_' + index
-        );
-      } else {
-        clonedPositionInput.classList.add('validatedCheckLargeInputs');
-        positionInputErrorImg.removeAttribute('src');
-        clonedPositionInput;
-        setSuccess(
-          clonedPositionInput,
-          'მინიმუმ 2 სიმბოლო',
-          'positionLabel_' + index
-        );
-      }
-    });
-
-  const container = document.getElementById('container');
-  container.appendChild(clonedTemplate);
-}
 generateNewFormBtn.addEventListener('click', () => {
   amountOfFormsGenerated++;
   localStorage.setItem('amountOfFormsGenerated', amountOfFormsGenerated);
@@ -255,13 +194,106 @@ generateNewFormBtn.addEventListener('click', () => {
   window.location.reload();
 });
 
+window.onbeforeunload = function saveDataBeforeRefresh() {
+  sessionStorage.setItem('position', positionInputElement.value);
+  sessionStorage.setItem('employer', employerInputElement.value);
+  sessionStorage.setItem('startDate', startDateInputElement.value);
+  sessionStorage.setItem('endDate', endDateInputElement.value);
+  sessionStorage.setItem('description', jobDescriptionInputElement.value);
+};
+
+let allGeneratedFormData = [];
 window.onload = function () {
+  let position = sessionStorage.getItem('position');
+  let employer = sessionStorage.getItem('employer');
+  let startDate = sessionStorage.getItem('startDate');
+  let endDate = sessionStorage.getItem('endDate');
+  let description = sessionStorage.getItem('description');
+  positionInputElement.value = position;
+  employerInputElement.value = employer;
+  startDateInputElement.value = startDate;
+  endDateInputElement.value = endDate;
+  jobDescriptionInputElement.value = description;
+  if (position !== null) {
+    handlePositionInput();
+    handleEmployerInput();
+    handleStartDateInput();
+    handleEndDateInput();
+    handleDescriptionInput();
+  }
+
   amountOfFormsGenerated = amountOfForms;
+
   for (let i = 0; i < parseInt(amountOfForms); i++) {
     generateNewForm(i + 1);
     let position = JSON.parse(localStorage.getItem(`Form_${i + 1}_position`));
-    console.log(position.positionInputValue);
-    document.getElementById(`positionInput_${i + 1}`).value =
-      position.positionInputValue;
+    let employer = JSON.parse(localStorage.getItem(`Form_${i + 1}_employer`));
+    let startDate = JSON.parse(localStorage.getItem(`Form_${i + 1}_startDate`));
+    let endDate = JSON.parse(localStorage.getItem(`Form_${i + 1}_endDate`));
+    let description = JSON.parse(
+      localStorage.getItem(`Form_${i + 1}_description`)
+    );
+
+    if (position !== null) {
+      document.getElementById(`positionInput_${i + 1}`).value =
+        position.positionInputValue;
+      document.getElementById(`formPosition_${i + 1}`).innerHTML =
+        position.positionInputValue;
+    }
+    if (employer !== null) {
+      document.getElementById(`employerInput_${i + 1}`).value =
+        employer.employerInputValue;
+      document.getElementById(`formEmployer_${i + 1}`).innerHTML =
+        employer.employerInputValue;
+    }
+
+    if (startDate !== null) {
+      document.getElementById(`startDateInput_${i + 1}`).value =
+        startDate.startDateInputValue;
+      document.getElementById(`formStartDate_${i + 1}`).innerHTML =
+        startDate.startDateInputValue;
+    }
+    if (endDate !== null) {
+      document.getElementById(`endDateInput_${i + 1}`).value =
+        endDate.endDateInputValue;
+      document.getElementById(`formEndDate_${i + 1}`).innerHTML =
+        endDate.endDateInputValue;
+    }
+    if (description !== null) {
+      document.getElementById(`descriptionInput_${i + 1}`).value =
+        description.descriptionInputValue;
+      document.getElementById(`formDescription_${i + 1}`).innerHTML =
+        description.descriptionInputValue;
+    }
   }
 };
+
+// manage navigating to previous and next page
+
+previousPageButton.addEventListener('click', () => {
+  window.location.href = './personal-info.html';
+});
+
+nextPageButton.addEventListener('click', () => {
+  if (
+    validatePositionInput() &&
+    validateEmployerInput() &&
+    validateStartDateInput() &&
+    validateEndDateInput() &&
+    validateDescriptionInput()
+  ) {
+    window.localStorage.setItem(
+      'experiences',
+      JSON.stringify({
+        position: positionInputElement.value,
+        employer: employerInputElement.value,
+        start_date: startDateInputElement.value,
+        due_date: endDateInputElement.value,
+        description: jobDescriptionInputElement.value,
+      })
+    );
+    window.location.href = './education-info.html';
+  } else {
+    return;
+  }
+});

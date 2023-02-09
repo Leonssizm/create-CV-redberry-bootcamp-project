@@ -24,7 +24,41 @@
                 </header>
             </div>
         </div>
-
+        <div class="education-wrapper">
+            <div class="education input-control">
+                <label id="educationLabel">სასწავლებელი</label>
+                <input type="text" id="educationInput" class="educationInput" placeholder="სასწავლებელი">
+                <div class="error">მინიმუმ 2 სიმბოლო</div>
+            </div>
+            <img id="educationErrorImg">
+        </div>
+        <div class="qualification-endDate-wrapper">
+            <div class="qualification input-control">
+                <label id="qualificationLabel">ხარისხი</label>
+                <select name="qualification" id="qualification" class="qualificationSelect">
+                    <option value="0" class="disabledIcon" disabled selected hidden>აირჩიეთ ხარისხი</option>
+                </select>
+                <div class="error"></div>
+            </div>
+            <img id="qualificationErrorImg">
+            <div class="endDate input-control">
+                <label id="endDateLabel">დამთავრების რიცხვი</label>
+                <input type="date" id="endDateInput" class="endDateInput dateInputLogo">
+                <div class="error"></div>
+            </div>
+            <img id="endDateErrorImg">
+        </div>
+        <div class="description-wrapper">
+            <div class="description input-control">
+                <label id="descriptionLabel">აღწერა</label>
+                <input type="text" id="descriptionInput" class="descriptionInput" placeholder="განათლების აღწერა">
+                <div class="error"></div>
+            </div>
+            <img id="descriptionErrorImg">
+        </div>
+        <div class="line-wrapper">
+            <div class="line"></div>
+        </div>
         <div id="container">
             <!-- cloned forms go here -->
         </div>
@@ -33,10 +67,66 @@
 
         </template>
         <!--  -->
-
+        <div class="generateExperienceForm-wrapper">
+            <button class="generateNewFormBtn" id="generateNewFormBtn">მეტი გამოცდილების დამატება</button>
+        </div>
+        <div class="navigation-buttons-wrapper">
+            <div class="backBtn">
+                <button type="button" class="PreviousPageBtn" id="backToPreviousPageBtn"></button>
+            </div>
+            <div class="nextPageBtn">
+                <button type="button" class="nextPageButton" id="nextPageButton"></button>
+            </div>
+        </div>
     </div>
     <div class="form-info-display">
+        <div class="info-picture-wrapper">
+            <div class="info-container">
+                <div class="name-surname">
+                    <h1 id="formName"></h1>
+                    <h1 id="formSurname"></h1>
+                </div>
+                <div class="email-phone">
+                    <div class="formEmailContainer">
+                        <img id="formEmailSign">
+                        <h3 id="formEmail"></h3>
+                    </div>
+                    <div class="formNumberContainer">
+                        <img id="formTelephoneSign">
+                        <h3 id="formNumber"></h3>
+                    </div>
+                </div>
+                <div class="aboutMe">
+                    <h2 id="aboutMeLabel"></h2>
+                    <p id="formAbout"></p>
+                </div>
+            </div>
+            <div class="picture-container">
+                <div id="displayImage"></div>
+            </div>
 
+        </div>
+        <div class="separator-line-wrapper">
+            <div class="infoDisplaySeparator"></div>
+        </div>
+        <div class="experienceInfoForm" id="experienceInfoForm">
+            <h2 class="experienceInfoHeader" id="experienceFormInfoHeader"></h2>
+            <div class="positionEmployeeForm">
+                <p id="formPosition" class="formPosition"></p>
+                <p id="formEmployer" class="formEmployer"></p>
+            </div>
+            <div class="startEndDateForm">
+                <p id="formStartDate" class="formStartDate"></p>
+                <p id="dash" class="dash"></p>
+                <p id="formEndDate" class="formEndDate"></p>
+            </div>
+            <div class="formDescription">
+                <p id="formDescription" class="formDescription"></p>
+            </div>
+        </div>
+        <div class="footer">
+            <img src="./assets/icons/sparkle.svg" alt="sparkle">
+        </div>
     </div>
     <div id="formLineDisplay"></div>
 

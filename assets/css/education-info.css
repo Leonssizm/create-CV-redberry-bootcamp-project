@@ -53,3 +53,347 @@ html {
   color: #1a1a1a;
   margin-bottom: 15px;
 }
+
+/* Form, inputs */
+
+.education-wrapper {
+  margin: 77px 0 0 150px;
+}
+label {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin-bottom: 8px;
+}
+.educationInput {
+  width: 766px;
+  height: 21px;
+  padding: 13px 16px 14px 16px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  white-space: pre-line;
+}
+.educationInput::placeholder,
+.descriptionInput::placeholder {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.error {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #2e2e2e;
+  margin-top: 8px;
+}
+
+.qualification-endDate-wrapper {
+  margin-top: 31px;
+  display: flex;
+  justify-content: center;
+}
+.endDate {
+  margin-left: 31px;
+}
+.endDateInput {
+  width: 323px;
+  height: 21px;
+  padding: 13px 16px 14px 16px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  white-space: normal;
+}
+.dateInputLogo {
+  background-image: url(../icons/calendar.svg);
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  background-position: 325px;
+}
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  height: 20px;
+  width: 18px;
+}
+.qualificationSelect {
+  width: 371px;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  margin-right: 31px;
+}
+select {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  padding: 13px 16px 13px 16px;
+  -webkit-appearance: none;
+  background: url(../icons/dropDown.svg) #ffffff no-repeat 95.5% !important;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+select option {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #1a1a1a;
+  background: #ffffff;
+  padding: 10px 10px 10px 16px;
+  width: 370px;
+  height: 41px;
+}
+
+.description-wrapper {
+  margin: 36px 0 0 150px;
+  display: flex;
+}
+.descriptionInput {
+  width: 782px;
+  height: 21px;
+  padding: 13px 0px 102px 16px;
+  background: #ffffff;
+  border: 1px solid #bcbcbc;
+  border-radius: 4px;
+  white-space: normal;
+}
+.line-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.line {
+  margin-top: 58px;
+  width: 798px;
+  height: 0;
+  border: 1px solid #c1c1c1;
+}
+
+/* Navigation buttons & generate new form */
+.generateExperienceForm-wrapper {
+  margin: 45px 0 0 150px;
+  display: flex;
+}
+.generateNewFormBtn {
+  width: 289px;
+  height: 48px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  background: #62a1eb;
+  border-radius: 4px;
+  border-color: transparent;
+}
+.navigation-buttons-wrapper {
+  margin: 200px 150px 65px 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.PreviousPageBtn {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  padding: 14px 54px 14px 54px;
+  background: #6b40e3;
+  border-radius: 4px;
+  border-color: transparent;
+}
+.nextPageButton {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  padding: 14px 54px 14px 54px;
+  background: #6b40e3;
+  border-radius: 4px;
+  border-color: transparent;
+}
+
+/* CV display (previous page - personal info version) */
+.form-info-display {
+  background: #ffffff;
+  width: 822px;
+}
+.info-picture-wrapper {
+  display: flex;
+}
+.info-container {
+  margin-left: 80px;
+}
+.name-surname {
+  margin-top: 68px;
+  margin-right: 25px;
+  display: flex;
+}
+.name-surname h1:first-child {
+  margin-right: 20px;
+}
+
+.name-surname h1 {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+  color: #f93b1d;
+}
+.email-phone {
+  margin-top: 17px;
+}
+#formEmail,
+#formNumber {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #1a1a1a;
+}
+
+.aboutMe {
+  margin-top: 34px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: lowercase;
+  color: #000000;
+  word-break: break-word;
+}
+#aboutMeLabel {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.formEmailContainer,
+.formNumberContainer {
+  display: flex;
+}
+.formEmailContainer h3,
+.formNumberContainer h3 {
+  margin: 0;
+}
+.formEmailContainer img,
+.formNumberContainer img {
+  margin-right: 10px;
+}
+.formNumberContainer {
+  margin-top: 10px;
+}
+
+/* CV picture */
+
+#displayImage {
+  width: 246px;
+  height: 246px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  margin: 48px 75px 0 0;
+}
+.separator-line-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.infoDisplaySeparator {
+  width: 662px;
+  height: 0px;
+  border: 1px solid #c8c8c8;
+}
+
+/* Experience info form stylings */
+
+.experienceInfoForm {
+  margin: 24px 0 0 80px;
+}
+.experienceInfoHeader {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.positionEmployeeForm {
+  display: flex;
+}
+.formPosition,
+.formEmployer {
+  margin-top: 10px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1a1a;
+  margin-bottom: 7px;
+}
+.formEmployer {
+  margin-left: 7px;
+}
+.startEndDateForm {
+  display: flex;
+}
+
+.formStartDate,
+.formEndDate,
+.dash {
+  margin: 0;
+  font-family: 'Helvetica Neue';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #919191;
+}
+.dash {
+  margin: 0 5px 0 5px;
+  display: flex;
+  align-items: flex-start;
+}
+.formDescription {
+  margin-top: 16px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: capitalize;
+  white-space: normal;
+  color: #000000;
+  margin-right: 80px;
+  word-break: break-word;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-left: 78px;
+}
