@@ -96,7 +96,20 @@ html {
 }
 
 .aboutMe {
+  display: flex;
+  flex-direction: column;
+}
+#aboutMeFormLabel {
   margin-top: 34px;
+  margin-bottom: 0;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+#formAbout {
   font-family: 'Helvetica Neue';
   font-style: normal;
   font-weight: 400;
@@ -105,14 +118,6 @@ html {
   text-transform: lowercase;
   color: #000000;
   word-break: break-word;
-}
-#aboutMeLabel {
-  font-family: 'Helvetica Neue';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  color: #f93b1d;
 }
 .formEmailContainer,
 .formNumberContainer {

@@ -31,7 +31,7 @@ function handleAboutInput() {
   let aboutMeFormLabel = document.getElementById('aboutMeFormLabel');
   formAboutMeElement.innerHTML = aboutInputElement.value;
   if (aboutInputElement.value.length > 0) {
-    aboutMeFormLabel.innerHTML = 'შესახებ'.toUpperCase();
+    aboutMeFormLabel.innerHTML = 'ჩემ შესახებ'.toUpperCase();
   } else {
     aboutMeFormLabel.innerHTML = '';
   }
@@ -251,7 +251,7 @@ window.onload = function getSavedInfoForInputs() {
   emailInputElement.value = email;
   let image = sessionStorage.getItem('personal-image');
   imageDisplay.style.backgroundImage = `url(${image})`;
-  if (sessionStorage.getItem('phone') !== null) {
+  if (phone !== null) {
     handleNameInput();
     handleSurnameInput();
     handleAboutInput();

@@ -276,17 +276,9 @@ label,
   line-height: 21px;
   color: #1a1a1a;
 }
-
 .aboutMe {
-  margin-top: 34px;
-  font-family: 'Helvetica Neue';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  text-transform: lowercase;
-  color: #000000;
-  word-break: break-word;
+  display: flex;
+  flex-direction: column;
 }
 #aboutMeFormLabel {
   font-family: 'Helvetica Neue';
@@ -295,6 +287,16 @@ label,
   font-size: 18px;
   line-height: 22px;
   color: #f93b1d;
+}
+#formAbout {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: lowercase;
+  color: #000000;
+  word-break: break-word;
 }
 .formEmailContainer,
 .formNumberContainer {
