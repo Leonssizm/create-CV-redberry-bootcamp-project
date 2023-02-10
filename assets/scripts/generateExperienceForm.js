@@ -317,8 +317,3 @@ function generateNewForm(index) {
   container.appendChild(clonedFormTemplate);
   formDisplayContainer.appendChild(clonedDisplayFormTemplate);
 }
-
-// function saveDataInLocalStorage(id, value, element) {
-//   console.log(id, value, element);
-//   let newData = JSON.parse(localStorage.getItem('Form_' + id));
-// }

@@ -216,7 +216,7 @@ let file = new Blob([new Uint8Array(array)], {
   type: 'image/jpeg',
 });
 let phoneNum = personalInfo.phone_number.split(' ').join('');
-// under construction!
+
 nextPageBtn.addEventListener('click', sendData);
 let formData = new FormData();
 function sendData() {
@@ -244,11 +244,29 @@ function sendData() {
       JSON.stringify(educationsFromLocalStorage)
     );
 
-    formData.append('educations', educationsFromLocalStorage);
+    educationsFromLocalStorage.forEach((education, index) => {
+      formData.append(`educations[${index}][institute]`, education.institute);
+      formData.append(`educations[${index}][due_date]`, education.due_date);
+      formData.append(
+        `educations[${index}][description]`,
+        education.description
+      );
+      formData.append(`educations[${index}][degree_id]`, education.degree_id);
+    });
 
-    console.log(educationsFromLocalStorage);
-    console.log(formData.getAll('educations'));
-
+    experiences.forEach((experience, index) => {
+      formData.append(`experiences[${index}][position]`, experience.position);
+      formData.append(`experiences[${index}][employer]`, experience.employer);
+      formData.append(
+        `experiences[${index}][start_date]`,
+        experience.start_date
+      );
+      formData.append(`experiences[${index}][due_date]`, experience.due_date);
+      formData.append(
+        `experiences[${index}][description]`,
+        experience.description
+      );
+    });
     formData.append('name', personalInfo.name);
     formData.append('surname', personalInfo.surname);
     formData.append('email', personalInfo.email);

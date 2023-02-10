@@ -1,6 +1,6 @@
 // regex variables for validation
 const geoLettersRegex = /^[ა-ჰ]+$/;
-const redberryEmailRegex = /^[a-zA-Z0-9+_.-]+@redberry.ge$/;
+const redberryEmailRegex = /^[a-zA-Z0-9+_.-]+@redberry[.]ge$/;
 const phoneNumRegexWithspaces = /^[+]995 5[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}$/;
 
 // functions for validation

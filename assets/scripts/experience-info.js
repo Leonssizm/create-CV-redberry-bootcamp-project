@@ -225,7 +225,7 @@ window.onload = function () {
     handleDescriptionInput();
   }
 
-  // amountOfFormsGenerated = amountOfForms;
+  amountOfFormsGenerated = amountOfForms;
 
   // for (let i = 0; i < parseInt(amountOfForms); i++) {
   //   generateNewForm(i + 1);
@@ -285,17 +285,6 @@ nextPageButton.addEventListener('click', () => {
     validateEndDateInput() &&
     validateDescriptionInput()
   ) {
-    // window.localStorage.setItem(
-    //   'experiences',
-    //   JSON.stringify({
-    //     position: positionInputElement.value,
-    //     employer: employerInputElement.value,
-    //     start_date: startDateInputElement.value,
-    //     due_date: endDateInputElement.value,
-    //     description: jobDescriptionInputElement.value,
-    //   })
-    // );
-
     if (localStorage.getItem('experiences') == null) {
       localStorage.setItem('experiences', '[]');
     }
