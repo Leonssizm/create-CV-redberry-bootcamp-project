@@ -281,8 +281,15 @@ function sendData() {
         accept: 'application/json',
         // 'Content-type': 'multipart/form-data',
       },
-    }).then(response => {
-      console.log(response.json());
-    });
+    })
+      .then(response => response.json())
+      .then(data => {
+        localStorage.setItem('cv', JSON.stringify(data));
+        window.location.href = './cv-page.html';
+      });
   }
 }
+
+perviousPageBtn.addEventListener('click', () => {
+  window.location.href = './experience-info.html';
+});

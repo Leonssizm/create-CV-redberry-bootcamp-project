@@ -11,7 +11,6 @@ imageInput.addEventListener('change', function () {
     imageDisplay.style.backgroundImage = `url(${uploadedImage})`;
     localStorage.setItem('personal-image', reader.result);
     sessionStorage.setItem('personal-image', reader.result);
-    localStorage.setItem('image', imageInput.files[0]);
   });
   reader.readAsDataURL(this.files[0]);
 });

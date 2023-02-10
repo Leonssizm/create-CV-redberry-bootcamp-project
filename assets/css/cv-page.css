@@ -1,0 +1,124 @@
+body,
+html {
+  margin: 0;
+  /* overflow: hidden; */
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeue.ttc');
+}
+.header-backBtn-wrapper {
+  display: flex;
+  align-items: flex-start;
+  margin: 57px 0px 0 62px;
+}
+.backBtn {
+  margin-right: 77px;
+  width: 9.21px;
+  height: 16px;
+  font-weight: 500;
+}
+.wrapper {
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* popup */
+.popup-wrapper {
+  margin: 53px 73px 0 0;
+  width: 427px;
+  height: 167px;
+  left: 1423px;
+  top: 53px;
+  background: #ffffff;
+  border: 1px solid #e4e4e4;
+  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+  color: transparent;
+  margin: 17px 11px 0 0;
+}
+.popup-text {
+  display: flex;
+  padding: 0 33px 0 30px;
+}
+.text {
+  margin: 0;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 43px;
+  color: #1a1a1a;
+}
+/* form */
+.form-wrapper {
+  margin: 54px 0px 129px 337px;
+  width: 822px;
+  height: 1080px;
+  left: calc(50% - 822px / 2);
+  top: 54px;
+  background: #ffffff;
+  border: 0.8px solid #000000;
+}
+
+.form {
+  margin: 68px 75px 0 80px;
+}
+.personal-info-img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.personal-info-wrapper {
+  display: flex;
+  margin-right: 112px;
+  padding-top: 30px;
+}
+.name-surname {
+  display: flex;
+}
+.name {
+  margin: 0;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+  color: #f93b1d;
+}
+.surname {
+  margin: 0;
+  margin-left: 20px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+  color: #f93b1d;
+}
+.personalImg {
+  width: 246px;
+  height: 246px;
+  border-radius: 50%;
+}
+.email,
+.phone {
+  margin-top: 17px;
+  display: flex;
+}
+.email-text,
+.number-text {
+  margin: 0;
+  margin-left: 11px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #1a1a1a;
+}
