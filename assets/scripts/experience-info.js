@@ -184,15 +184,18 @@ formEmailSignImg.setAttribute('src', './assets/icons/atSign.svg');
 formTelephoneSignImg.setAttribute('src', './assets/icons/phone.svg');
 
 // add new forms
-let amountOfFormsGenerated = 0;
-let amountOfForms = JSON.parse(localStorage.getItem('amountOfFormsGenerated'));
 
-generateNewFormBtn.addEventListener('click', () => {
-  amountOfFormsGenerated++;
-  localStorage.setItem('amountOfFormsGenerated', amountOfFormsGenerated);
-  generateNewForm();
-  window.location.reload();
-});
+// generateNewFormBtn.addEventListener('click', () => {
+//   amountOfFormsGenerated++;
+//   localStorage.setItem(
+//     'amountOfFormsGenerated',
+//     JSON.stringify({ amountOfFormsGenerated })
+//   );
+//   generateNewForm();
+//   window.location.reload();
+// });
+// let amountOfFormsGenerated = 0;
+// let amountOfForms = JSON.parse(localStorage.getItem('amountOfFormsGenerated'));
 
 window.onbeforeunload = function saveDataBeforeRefresh() {
   sessionStorage.setItem('position', positionInputElement.value);
@@ -222,50 +225,50 @@ window.onload = function () {
     handleDescriptionInput();
   }
 
-  amountOfFormsGenerated = amountOfForms;
+  // amountOfFormsGenerated = amountOfForms;
 
-  for (let i = 0; i < parseInt(amountOfForms); i++) {
-    generateNewForm(i + 1);
-    let position = JSON.parse(localStorage.getItem(`Form_${i + 1}_position`));
-    let employer = JSON.parse(localStorage.getItem(`Form_${i + 1}_employer`));
-    let startDate = JSON.parse(localStorage.getItem(`Form_${i + 1}_startDate`));
-    let endDate = JSON.parse(localStorage.getItem(`Form_${i + 1}_endDate`));
-    let description = JSON.parse(
-      localStorage.getItem(`Form_${i + 1}_description`)
-    );
+  // for (let i = 0; i < parseInt(amountOfForms); i++) {
+  //   generateNewForm(i + 1);
+  //   let position = JSON.parse(localStorage.getItem(`Form_${i + 1}_position`));
+  //   let employer = JSON.parse(localStorage.getItem(`Form_${i + 1}_employer`));
+  //   let startDate = JSON.parse(localStorage.getItem(`Form_${i + 1}_startDate`));
+  //   let endDate = JSON.parse(localStorage.getItem(`Form_${i + 1}_endDate`));
+  //   let description = JSON.parse(
+  //     localStorage.getItem(`Form_${i + 1}_description`)
+  //   );
 
-    if (position !== null) {
-      document.getElementById(`positionInput_${i + 1}`).value =
-        position.positionInputValue;
-      document.getElementById(`formPosition_${i + 1}`).innerHTML =
-        position.positionInputValue;
-    }
-    if (employer !== null) {
-      document.getElementById(`employerInput_${i + 1}`).value =
-        employer.employerInputValue;
-      document.getElementById(`formEmployer_${i + 1}`).innerHTML =
-        employer.employerInputValue;
-    }
+  //   if (position !== null) {
+  //     document.getElementById(`positionInput_${i + 1}`).value =
+  //       position.positionInputValue;
+  //     document.getElementById(`formPosition_${i + 1}`).innerHTML =
+  //       position.positionInputValue;
+  //   }
+  //   if (employer !== null) {
+  //     document.getElementById(`employerInput_${i + 1}`).value =
+  //       employer.employerInputValue;
+  //     document.getElementById(`formEmployer_${i + 1}`).innerHTML =
+  //       employer.employerInputValue;
+  //   }
 
-    if (startDate !== null) {
-      document.getElementById(`startDateInput_${i + 1}`).value =
-        startDate.startDateInputValue;
-      document.getElementById(`formStartDate_${i + 1}`).innerHTML =
-        startDate.startDateInputValue;
-    }
-    if (endDate !== null) {
-      document.getElementById(`endDateInput_${i + 1}`).value =
-        endDate.endDateInputValue;
-      document.getElementById(`formEndDate_${i + 1}`).innerHTML =
-        endDate.endDateInputValue;
-    }
-    if (description !== null) {
-      document.getElementById(`descriptionInput_${i + 1}`).value =
-        description.descriptionInputValue;
-      document.getElementById(`formDescription_${i + 1}`).innerHTML =
-        description.descriptionInputValue;
-    }
-  }
+  //   if (startDate !== null) {
+  //     document.getElementById(`startDateInput_${i + 1}`).value =
+  //       startDate.startDateInputValue;
+  //     document.getElementById(`formStartDate_${i + 1}`).innerHTML =
+  //       startDate.startDateInputValue;
+  //   }
+  //   if (endDate !== null) {
+  //     document.getElementById(`endDateInput_${i + 1}`).value =
+  //       endDate.endDateInputValue;
+  //     document.getElementById(`formEndDate_${i + 1}`).innerHTML =
+  //       endDate.endDateInputValue;
+  //   }
+  //   if (description !== null) {
+  //     document.getElementById(`descriptionInput_${i + 1}`).value =
+  //       description.descriptionInputValue;
+  //     document.getElementById(`formDescription_${i + 1}`).innerHTML =
+  //       description.descriptionInputValue;
+  //   }
+  // }
 };
 
 // manage navigating to previous and next page
@@ -282,15 +285,36 @@ nextPageButton.addEventListener('click', () => {
     validateEndDateInput() &&
     validateDescriptionInput()
   ) {
-    window.localStorage.setItem(
+    // window.localStorage.setItem(
+    //   'experiences',
+    //   JSON.stringify({
+    //     position: positionInputElement.value,
+    //     employer: employerInputElement.value,
+    //     start_date: startDateInputElement.value,
+    //     due_date: endDateInputElement.value,
+    //     description: jobDescriptionInputElement.value,
+    //   })
+    // );
+
+    if (localStorage.getItem('experiences') == null) {
+      localStorage.setItem('experiences', '[]');
+    }
+
+    let experiencesFromLocalStorage = JSON.parse(
+      localStorage.getItem('experiences')
+    );
+    let data = {
+      position: positionInputElement.value,
+      employer: employerInputElement.value,
+      start_date: startDateInputElement.value,
+      due_date: endDateInputElement.value,
+      description: jobDescriptionInputElement.value,
+    };
+
+    experiencesFromLocalStorage.push(data);
+    localStorage.setItem(
       'experiences',
-      JSON.stringify({
-        position: positionInputElement.value,
-        employer: employerInputElement.value,
-        start_date: startDateInputElement.value,
-        due_date: endDateInputElement.value,
-        description: jobDescriptionInputElement.value,
-      })
+      JSON.stringify(experiencesFromLocalStorage)
     );
     window.location.href = './education-info.html';
   } else {

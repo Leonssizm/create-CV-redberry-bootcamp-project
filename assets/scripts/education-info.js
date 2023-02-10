@@ -205,6 +205,17 @@ window.onload = function () {
       validateEducationDescriptionInput();
   }
 };
+
+// Turning local storage base 64 string to blob for FormData
+let binary = atob(image.split(',')[1]);
+let array = [];
+for (var i = 0; i < binary.length; i++) {
+  array.push(binary.charCodeAt(i));
+}
+let file = new Blob([new Uint8Array(array)], {
+  type: 'image/jpeg',
+});
+let phoneNum = personalInfo.phone_number.split(' ').join('');
 // under construction!
 nextPageBtn.addEventListener('click', sendData);
 let formData = new FormData();
@@ -215,32 +226,43 @@ function sendData() {
     validateEndDateInput() &&
     validateEducationDescriptionInput()
   ) {
+    if (localStorage.getItem('educations') == null) {
+      localStorage.setItem('educations', '[]');
+    }
+    let educationsFromLocalStorage = JSON.parse(
+      localStorage.getItem('educations')
+    );
+    let data = {
+      institute: educationInputElement.value,
+      degree_id: qualificationSelectElement.value,
+      due_date: endDateInputElement.value,
+      description: descriptionInputElement.value,
+    };
+    educationsFromLocalStorage.push(data);
     localStorage.setItem(
       'educations',
-      JSON.stringify({
-        institute: educationInputElement.value,
-        degree_id: qualificationSelectElement.value,
-        due_date: endDateInputElement.value,
-        description: descriptionInputElement.value,
-      })
+      JSON.stringify(educationsFromLocalStorage)
     );
-    let phoneNum = personalInfo.phone_number.split(' ').join('');
-    let educations = JSON.parse(localStorage.getItem('educations'));
 
-    // let educationsArr = Array(educations);
-    // let experiencesArr = Array(experiences);
+    formData.append('educations', educationsFromLocalStorage);
+
+    console.log(educationsFromLocalStorage);
+    console.log(formData.getAll('educations'));
 
     formData.append('name', personalInfo.name);
     formData.append('surname', personalInfo.surname);
     formData.append('email', personalInfo.email);
     formData.append('phone_number', phoneNum);
-    formData.append('experiences', JSON.stringify(experiences));
-    formData.append('educations', JSON.stringify(educations));
-    // formData.append('image', image);
+    formData.append('image', file);
     formData.append('about_me', personalInfo.about_me);
+
     fetch('https://resume.redberryinternship.ge/api/cvs', {
       method: 'POST',
       body: formData,
+      headers: {
+        accept: 'application/json',
+        // 'Content-type': 'multipart/form-data',
+      },
     }).then(response => {
       console.log(response.json());
     });
