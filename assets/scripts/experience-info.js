@@ -216,6 +216,10 @@ generateNewFormBtn.addEventListener('click', () => {
     generateNewForm_1();
   } else if (click == 2) {
     generateNewForm_2();
+  } else if (click == 3) {
+    generateNewForm_3();
+  } else if (click == 4) {
+    generateNewForm_4();
   }
 });
 let generatedExperienceForms = JSON.parse(
@@ -232,6 +236,25 @@ if (generatedExperienceForms == 2) {
   generateNewForm_1();
   displayForm_2();
   generateNewForm_2();
+}
+if (generatedExperienceForms == 3) {
+  displayForm_1();
+  generateNewForm_1();
+  displayForm_2();
+  generateNewForm_2();
+  displayForm_3();
+  generateNewForm_3();
+  // ADD EACH ONE HERE displayForm_1 _2 _3....
+}
+if (generatedExperienceForms == 4) {
+  displayForm_1();
+  generateNewForm_1();
+  displayForm_2();
+  generateNewForm_2();
+  displayForm_3();
+  generateNewForm_3();
+  displayForm_4();
+  generateNewForm_4();
   // ADD EACH ONE HERE displayForm_1 _2 _3....
 }
 window.onbeforeunload = function saveDataBeforeRefresh() {
@@ -319,6 +342,28 @@ nextPageButton.addEventListener('click', () => {
       };
 
       experiencesFromLocalStorage.push(data_2);
+    }
+    if (amountOfExperienceFormsGenerated >= 3 && experienceIsFullyFIlled(3)) {
+      let data_3 = {
+        position: positionInputElement_3.value,
+        employer: employerInputElement_3.value,
+        start_date: startDateInputElement_3.value,
+        due_date: endDateInputElement_3.value,
+        description: jobDescriptionInputElement_3.value,
+      };
+
+      experiencesFromLocalStorage.push(data_3);
+    }
+    if (amountOfExperienceFormsGenerated >= 4 && experienceIsFullyFIlled(4)) {
+      let data_4 = {
+        position: positionInputElement_4.value,
+        employer: employerInputElement_4.value,
+        start_date: startDateInputElement_4.value,
+        due_date: endDateInputElement_4.value,
+        description: jobDescriptionInputElement_4.value,
+      };
+
+      experiencesFromLocalStorage.push(data_4);
     }
 
     localStorage.setItem(
