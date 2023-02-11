@@ -31,3 +31,24 @@ function setSuccess(element, message, label) {
   inputControl.classList.add('success');
   inputControl.classList.remove('error');
 }
+
+function experienceIsFullyFIlled(index) {
+  const position = document.getElementById('positionInput_' + index).value;
+  const employer = document.getElementById('employerInput_' + index).value;
+  const startDate = document.getElementById('startDateInput_' + index).value;
+  const endDate = document.getElementById('endDateInput_' + index).value;
+  const description = document.getElementById(
+    'descriptionInput_' + index
+  ).value;
+  if (
+    position != '' &&
+    employer != '' &&
+    startDate != '' &&
+    endDate != '' &&
+    description != ''
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}

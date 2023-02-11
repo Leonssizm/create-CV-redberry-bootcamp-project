@@ -180,29 +180,38 @@ aboutMeFormLabel.innerHTML = 'ჩემ შესახებ'.toUpperCase();
 formEmailSignImg.setAttribute('src', './assets/icons/atSign.svg');
 formTelephoneSignImg.setAttribute('src', './assets/icons/phone.svg');
 experienceInfoHeader.innerHTML = 'გამოცდილება'.toUpperCase();
-formPositionElement.innerHTML = experiences.position;
-formEmployerElement.innerHTML = experiences.employer;
-formStartDateElement.innerHTML = experiences.start_date;
-formEndDateElement.innerHTML = experiences.due_date;
-formDescriptionElement.innerHTML = experiences.description;
+// TO DO: make dynamic
+formPositionElement.innerHTML = experiences[0].position;
+formEmployerElement.innerHTML = experiences[0].employer;
+formStartDateElement.innerHTML = experiences[0].start_date;
+formEndDateElement.innerHTML = experiences[0].due_date;
+formDescriptionElement.innerHTML = experiences[0].description;
 
 window.onbeforeunload = function saveDataBeforeRefresh() {
   sessionStorage.setItem('education', educationInputElement.value);
   sessionStorage.setItem('degree', qualificationSelectElement.value);
-  sessionStorage.setItem('endDate', endDateInputElement.value);
-  sessionStorage.setItem('description', descriptionInputElement.value);
+  sessionStorage.setItem('educationEndDate', endDateInputElement.value);
+  sessionStorage.setItem('educationDescription', descriptionInputElement.value);
 };
 
 window.onload = function () {
   educationInputElement.value = sessionStorage.getItem('education');
   qualificationSelectElement.value = sessionStorage.getItem('degree');
-  endDateInputElement.value = sessionStorage.getItem('endDate');
-  descriptionInputElement.value = sessionStorage.getItem('description');
+  endDateInputElement.value = sessionStorage.getItem('educationEndDate');
+  descriptionInputElement.value = sessionStorage.getItem(
+    'educationDescription'
+  );
+  let degreesSearch = degrees.find(
+    degree => degree.id == parseInt(sessionStorage.getItem('degree'))
+  );
+
   if (sessionStorage.getItem('education') !== null) {
-    validateEducationInput() &&
-      validateQualificationSelect() &&
-      validateEndDateInput() &&
-      validateEducationDescriptionInput();
+    handleEducationInput() &&
+      handleQualificationSelect() &&
+      handleEndDateInput() &&
+      handleDescriptionInput();
+    document.getElementById('formQualification').innerHTML =
+      degreesSearch.title;
   }
 };
 

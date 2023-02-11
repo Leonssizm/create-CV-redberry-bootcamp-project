@@ -122,3 +122,30 @@ html {
   line-height: 21px;
   color: #1a1a1a;
 }
+.aboutMeLabel {
+  margin-top: 34px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.aboutMe {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: lowercase;
+  color: #000000;
+}
+.separator-line-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.infoDisplaySeparator {
+  width: 662px;
+  height: 0px;
+  border: 1px solid #c8c8c8;
+}

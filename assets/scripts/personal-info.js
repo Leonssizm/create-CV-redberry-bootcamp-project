@@ -260,3 +260,5 @@ window.onload = function getSavedInfoForInputs() {
     validateImageInput();
   }
 };
+
+window.localStorage.setItem('amountOfExperienceFormsGenerated', 0);

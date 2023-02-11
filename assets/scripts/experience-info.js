@@ -1,3 +1,4 @@
+// TODO
 const positionInputElement = document.getElementById('positionInput');
 const employerInputElement = document.getElementById('employerInput');
 const startDateInputElement = document.getElementById('startDateInput');
@@ -65,6 +66,10 @@ function handleDescriptionInput() {
   validateDescriptionInput();
   formDescription.innerHTML = jobDescriptionInputElement.value;
 }
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 
 // input Validation Functions:
 
@@ -160,6 +165,19 @@ function validateDescriptionInput() {
 }
 // When page is loaded, display part of previously Filled resume
 
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+//
+//
+// UP TO HERE, VAlidations and real time update for forms
+//
+//
+//
+//
+
 let formNameElement = document.getElementById('formName');
 let formSurnameElement = document.getElementById('formSurname');
 const imageDisplay = document.getElementById('displayImage');
@@ -185,18 +203,37 @@ formTelephoneSignImg.setAttribute('src', './assets/icons/phone.svg');
 
 // add new forms
 
-// generateNewFormBtn.addEventListener('click', () => {
-//   amountOfFormsGenerated++;
-//   localStorage.setItem(
-//     'amountOfFormsGenerated',
-//     JSON.stringify({ amountOfFormsGenerated })
-//   );
-//   generateNewForm();
-//   window.location.reload();
-// });
-// let amountOfFormsGenerated = 0;
-// let amountOfForms = JSON.parse(localStorage.getItem('amountOfFormsGenerated'));
+let click = 0;
+generateNewFormBtn.addEventListener('click', () => {
+  click++;
+  let amountOfExperienceFormsGenerated = click;
+  localStorage.setItem(
+    'amountOfExperienceFormsGenerated',
+    JSON.stringify(amountOfExperienceFormsGenerated)
+  );
 
+  if (click == 1) {
+    generateNewForm_1();
+  } else if (click == 2) {
+    generateNewForm_2();
+  }
+});
+let generatedExperienceForms = JSON.parse(
+  localStorage.getItem('amountOfExperienceFormsGenerated')
+);
+click = generatedExperienceForms;
+
+if (generatedExperienceForms == 1) {
+  displayForm_1();
+  generateNewForm_1();
+}
+if (generatedExperienceForms == 2) {
+  displayForm_1();
+  generateNewForm_1();
+  displayForm_2();
+  generateNewForm_2();
+  // ADD EACH ONE HERE displayForm_1 _2 _3....
+}
 window.onbeforeunload = function saveDataBeforeRefresh() {
   sessionStorage.setItem('position', positionInputElement.value);
   sessionStorage.setItem('employer', employerInputElement.value);
@@ -205,18 +242,19 @@ window.onbeforeunload = function saveDataBeforeRefresh() {
   sessionStorage.setItem('description', jobDescriptionInputElement.value);
 };
 
-let allGeneratedFormData = [];
 window.onload = function () {
   let position = sessionStorage.getItem('position');
   let employer = sessionStorage.getItem('employer');
   let startDate = sessionStorage.getItem('startDate');
   let endDate = sessionStorage.getItem('endDate');
   let description = sessionStorage.getItem('description');
+
   positionInputElement.value = position;
   employerInputElement.value = employer;
   startDateInputElement.value = startDate;
   endDateInputElement.value = endDate;
   jobDescriptionInputElement.value = description;
+
   if (position !== null) {
     handlePositionInput();
     handleEmployerInput();
@@ -224,51 +262,6 @@ window.onload = function () {
     handleEndDateInput();
     handleDescriptionInput();
   }
-
-  amountOfFormsGenerated = amountOfForms;
-
-  // for (let i = 0; i < parseInt(amountOfForms); i++) {
-  //   generateNewForm(i + 1);
-  //   let position = JSON.parse(localStorage.getItem(`Form_${i + 1}_position`));
-  //   let employer = JSON.parse(localStorage.getItem(`Form_${i + 1}_employer`));
-  //   let startDate = JSON.parse(localStorage.getItem(`Form_${i + 1}_startDate`));
-  //   let endDate = JSON.parse(localStorage.getItem(`Form_${i + 1}_endDate`));
-  //   let description = JSON.parse(
-  //     localStorage.getItem(`Form_${i + 1}_description`)
-  //   );
-
-  //   if (position !== null) {
-  //     document.getElementById(`positionInput_${i + 1}`).value =
-  //       position.positionInputValue;
-  //     document.getElementById(`formPosition_${i + 1}`).innerHTML =
-  //       position.positionInputValue;
-  //   }
-  //   if (employer !== null) {
-  //     document.getElementById(`employerInput_${i + 1}`).value =
-  //       employer.employerInputValue;
-  //     document.getElementById(`formEmployer_${i + 1}`).innerHTML =
-  //       employer.employerInputValue;
-  //   }
-
-  //   if (startDate !== null) {
-  //     document.getElementById(`startDateInput_${i + 1}`).value =
-  //       startDate.startDateInputValue;
-  //     document.getElementById(`formStartDate_${i + 1}`).innerHTML =
-  //       startDate.startDateInputValue;
-  //   }
-  //   if (endDate !== null) {
-  //     document.getElementById(`endDateInput_${i + 1}`).value =
-  //       endDate.endDateInputValue;
-  //     document.getElementById(`formEndDate_${i + 1}`).innerHTML =
-  //       endDate.endDateInputValue;
-  //   }
-  //   if (description !== null) {
-  //     document.getElementById(`descriptionInput_${i + 1}`).value =
-  //       description.descriptionInputValue;
-  //     document.getElementById(`formDescription_${i + 1}`).innerHTML =
-  //       description.descriptionInputValue;
-  //   }
-  // }
 };
 
 // manage navigating to previous and next page
@@ -288,6 +281,9 @@ nextPageButton.addEventListener('click', () => {
     if (localStorage.getItem('experiences') == null) {
       localStorage.setItem('experiences', '[]');
     }
+    const amountOfExperienceFormsGenerated = localStorage.getItem(
+      'amountOfExperienceFormsGenerated'
+    );
 
     let experiencesFromLocalStorage = JSON.parse(
       localStorage.getItem('experiences')
@@ -299,8 +295,32 @@ nextPageButton.addEventListener('click', () => {
       due_date: endDateInputElement.value,
       description: jobDescriptionInputElement.value,
     };
-
     experiencesFromLocalStorage.push(data);
+
+    if (amountOfExperienceFormsGenerated >= 1 && experienceIsFullyFIlled(1)) {
+      let data_1 = {
+        position: positionInputElement_1.value,
+        employer: employerInputElement_1.value,
+        start_date: startDateInputElement_1.value,
+        due_date: endDateInputElement_1.value,
+        description: jobDescriptionInputElement_1.value,
+      };
+
+      experiencesFromLocalStorage.push(data_1);
+    }
+
+    if (amountOfExperienceFormsGenerated >= 2 && experienceIsFullyFIlled(2)) {
+      let data_2 = {
+        position: positionInputElement_2.value,
+        employer: employerInputElement_2.value,
+        start_date: startDateInputElement_2.value,
+        due_date: endDateInputElement_2.value,
+        description: jobDescriptionInputElement_2.value,
+      };
+
+      experiencesFromLocalStorage.push(data_2);
+    }
+
     localStorage.setItem(
       'experiences',
       JSON.stringify(experiencesFromLocalStorage)

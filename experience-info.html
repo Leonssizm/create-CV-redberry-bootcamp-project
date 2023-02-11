@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/experience-info.css">
     <script src="./assets/scripts/validations.js" defer></script>
+    <script src="./assets/scripts/generateExperienceForm-1.js" defer></script>
+    <script src="./assets/scripts/generateExperienceForm-2.js" defer></script>
     <script src="./assets/scripts/experience-info.js" defer></script>
-    <script src="./assets/scripts/generateExperienceForm.js" defer></script>
     <title>Experience Info</title>
 </head>
 
 <body>
+
     <div class="form">
         <div class="header-backBtn-wrapper">
             <a class="backBtn" href="./index.html"><img src="./assets/icons/backToFirstPageArr.svg" alt="go back"></a>
@@ -25,105 +27,213 @@
                 </header>
             </div>
         </div>
-        <div class="position-employer-wrapper">
-            <div class="position-container">
-                <div class="position input-control">
-                    <label id="positionLabel">თანამდებობა</label>
-                    <input type="text" id="positionInput" class="positionInput"
-                        placeholder="დეველოპერი, დიზაინერი, ა.შ">
-                    <div class="error">მინიმუმ 2 სიმბოლო</div>
-                </div>
-                <img id="positionErrorImg">
-            </div>
-            <div class="employer-container">
-                <div class="employer input-control">
-                    <label id="employerLabel">დამსაქმებელი</label>
-                    <input type="text" id="employerInput" class="employerInput" placeholder="დამსაქმებელი">
-                    <div class="error">მინიმუმ 2 სიმბოლო</div>
-                </div>
-                <img id="employerErrorImg">
-            </div>
-        </div>
-        <div class="dates-wrapper">
-            <div class="startDate input-control">
-                <label id="startDateLabel">დაწყების რიცხვი</label>
-                <input type="date" id="startDateInput" class="startDateInput dateInputLogo">
-                <div class="error"></div>
-            </div>
-            <img id="startDateErrorImg">
-            <div class="endDate input-control">
-                <label id="endDateLabel">დამთავრების რიცხვი</label>
-                <input type="date" id="endDateInput" class="endDateInput dateInputLogo">
-                <div class="error"></div>
-            </div>
-            <img id="endDateErrorImg">
-        </div>
-        <div class="description-wrapper">
-            <div class="description input-control">
-                <label id="descriptionLabel">აღწერა</label>
-                <textarea type="text" id="descriptionInput" class="descriptionInput"
-                    placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
-                <div class="error"></div>
-            </div>
-            <img id="descriptionErrorImg">
-        </div>
-        <div class="line-wrapper">
-            <div class="line"></div>
-        </div>
-        <div id="container">
-            <!-- cloned forms go here -->
-        </div>
-        <!-- New Form -->
-        <template id="newFormTemplate" class="newFormContainer">
+        <!-- FORM-START -->
+        <div id="experience_form">
             <div class="position-employer-wrapper">
                 <div class="position-container">
                     <div class="position input-control">
-                        <label id="positionLabel_ID_PLACEHOLDER">თანამდებობა</label>
-                        <input type="text" id="positionInput_ID_PLACEHOLDER" class="positionInput"
+                        <label id="positionLabel">თანამდებობა</label>
+                        <input type="text" id="positionInput" class="positionInput"
                             placeholder="დეველოპერი, დიზაინერი, ა.შ">
                         <div class="error">მინიმუმ 2 სიმბოლო</div>
                     </div>
-                    <img id="positionErrorImg_ID_PLACEHOLDER">
+                    <img id="positionErrorImg">
                 </div>
                 <div class="employer-container">
                     <div class="employer input-control">
-                        <label id="employerLabel_ID_PLACEHOLDER">დამსაქმებელი</label>
-                        <input type="text" id="employerInput_ID_PLACEHOLDER" class="employerInput"
-                            placeholder="დამსაქმებელი">
+                        <label id="employerLabel">დამსაქმებელი</label>
+                        <input type="text" id="employerInput" class="employerInput" placeholder="დამსაქმებელი">
                         <div class="error">მინიმუმ 2 სიმბოლო</div>
                     </div>
-                    <img id="employerErrorImg_ID_PLACEHOLDER">
+                    <img id="employerErrorImg">
                 </div>
             </div>
             <div class="dates-wrapper">
                 <div class="startDate input-control">
-                    <label id="startDateLabel_ID_PLACEHOLDER">დაწყების რიცხვი</label>
-                    <input type="date" id="startDateInput_ID_PLACEHOLDER" class="startDateInput dateInputLogo">
+                    <label id="startDateLabel">დაწყების რიცხვი</label>
+                    <input type="date" id="startDateInput" class="startDateInput dateInputLogo">
                     <div class="error"></div>
                 </div>
-                <img id="startDateErrorImg_ID_PLACEHOLDER">
+                <img id="startDateErrorImg">
                 <div class="endDate input-control">
-                    <label id="endDateLabel_ID_PLACEHOLDER">დამთავრების რიცხვი</label>
-                    <input type="date" id="endDateInput_ID_PLACEHOLDER" class="endDateInput dateInputLogo">
+                    <label id="endDateLabel">დამთავრების რიცხვი</label>
+                    <input type="date" id="endDateInput" class="endDateInput dateInputLogo">
                     <div class="error"></div>
                 </div>
-                <img id="endDateErrorImg_ID_PLACEHOLDER">
+                <img id="endDateErrorImg">
             </div>
             <div class="description-wrapper">
-                <div class="description">
-                    <label id="descriptionLabel_ID_PLACEHOLDER">აღწერა</label>
-                    <textarea type="text" id="descriptionInput_ID_PLACEHOLDER" class="descriptionInput"
+                <div class="description input-control">
+                    <label id="descriptionLabel">აღწერა</label>
+                    <textarea type="text" id="descriptionInput" class="descriptionInput"
                         placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
                     <div class="error"></div>
                 </div>
-                <img id="descriptionErrorImg_ID_PLACEHOLDER">
+                <img id="descriptionErrorImg">
             </div>
             <div class="line-wrapper">
                 <div class="line"></div>
             </div>
+        </div>
 
-        </template>
-        <!--  -->
+        <!-- FORM-END -->
+
+        <!-- FORM-1-START -->
+        <div id="experience_form_1">
+            <div class="position-employer-wrapper">
+                <div class="position-container">
+                    <div class="position input-control">
+                        <label id="positionLabel_1">თანამდებობა</label>
+                        <input type="text" id="positionInput_1" class="positionInput"
+                            placeholder="დეველოპერი, დიზაინერი, ა.შ">
+                        <div class="error">მინიმუმ 2 სიმბოლო</div>
+                    </div>
+                    <img id="positionErrorImg_1">
+                </div>
+                <div class="employer-container">
+                    <div class="employer input-control">
+                        <label id="employerLabel_1">დამსაქმებელი</label>
+                        <input type="text" id="employerInput_1" class="employerInput" placeholder="დამსაქმებელი">
+                        <div class="error">მინიმუმ 2 სიმბოლო</div>
+                    </div>
+                    <img id="employerErrorImg_1">
+                </div>
+            </div>
+            <div class="dates-wrapper">
+                <div class="startDate input-control">
+                    <label id="startDateLabel_1">დაწყების რიცხვი</label>
+                    <input type="date" id="startDateInput_1" class="startDateInput dateInputLogo">
+                    <div class="error"></div>
+                </div>
+                <img id="startDateErrorImg_1">
+                <div class="endDate input-control">
+                    <label id="endDateLabel_1">დამთავრების რიცხვი</label>
+                    <input type="date" id="endDateInput_1" class="endDateInput dateInputLogo">
+                    <div class="error"></div>
+                </div>
+                <img id="endDateErrorImg_1">
+            </div>
+            <div class="description-wrapper">
+                <div class="description input-control">
+                    <label id="descriptionLabel_1">აღწერა</label>
+                    <textarea type="text" id="descriptionInput_1" class="descriptionInput"
+                        placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+                    <div class="error"></div>
+                </div>
+                <img id="descriptionErrorImg_1">
+            </div>
+            <div class="line-wrapper">
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <!-- FORM-END -->
+
+        <!-- FORM-2-START -->
+        <div id="experience_form_2">
+            <div class="position-employer-wrapper">
+                <div class="position-container">
+                    <div class="position input-control">
+                        <label id="positionLabel_2">თანამდებობა</label>
+                        <input type="text" id="positionInput_2" class="positionInput"
+                            placeholder="დეველოპერი, დიზაინერი, ა.შ">
+                        <div class="error">მინიმუმ 2 სიმბოლო</div>
+                    </div>
+                    <img id="positionErrorImg_2">
+                </div>
+                <div class="employer-container">
+                    <div class="employer input-control">
+                        <label id="employerLabel_2">დამსაქმებელი</label>
+                        <input type="text" id="employerInput_2" class="employerInput" placeholder="დამსაქმებელი">
+                        <div class="error">მინიმუმ 2 სიმბოლო</div>
+                    </div>
+                    <img id="employerErrorImg_2">
+                </div>
+            </div>
+            <div class="dates-wrapper">
+                <div class="startDate input-control">
+                    <label id="startDateLabel_2">დაწყების რიცხვი</label>
+                    <input type="date" id="startDateInput_2" class="startDateInput dateInputLogo">
+                    <div class="error"></div>
+                </div>
+                <img id="startDateErrorImg_2">
+                <div class="endDate input-control">
+                    <label id="endDateLabel_2">დამთავრების რიცხვი</label>
+                    <input type="date" id="endDateInput_2" class="endDateInput dateInputLogo">
+                    <div class="error"></div>
+                </div>
+                <img id="endDateErrorImg_2">
+            </div>
+            <div class="description-wrapper">
+                <div class="description input-control">
+                    <label id="descriptionLabel_2">აღწერა</label>
+                    <textarea type="text" id="descriptionInput_2" class="descriptionInput"
+                        placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+                    <div class="error"></div>
+                </div>
+                <img id="descriptionErrorImg_2">
+            </div>
+            <div class="line-wrapper">
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <!-- FORM-2-END -->
+
+
+
+        <!-- FORM-3-START -->
+        <!-- <div id="experience_form_3">
+                    <div class="position-employer-wrapper">
+                        <div class="position-container">
+                            <div class="position input-control">
+                                <label id="positionLabel_[[[[[[[[[[INDEX]]]]]]]]]]">თანამდებობა</label>
+                                <input type="text" id="positionInput_[[[[[[[[[[INDEX]]]]]]]]]]" class="positionInput"
+                                    placeholder="დეველოპერი, დიზაინერი, ა.შ">
+                                <div class="error">მინიმუმ 2 სიმბოლო</div>
+                            </div>
+                            <img id="positionErrorImg_[[[[[[[[[[INDEX]]]]]]]]]]">
+                        </div>
+                        <div class="employer-container">
+                            <div class="employer input-control">
+                                <label id="employerLabel_[[[[[[[[[[INDEX]]]]]]]]]]">დამსაქმებელი</label>
+                                <input type="text" id="employerInput_[[[[[[[[[[INDEX]]]]]]]]]]" class="employerInput"
+                                    placeholder="დამსაქმებელი">
+                                <div class="error">მინიმუმ 2 სიმბოლო</div>
+                            </div>
+                            <img id="employerErrorImg_[[[[[[[[[[INDEX]]]]]]]]]]">
+                        </div>
+                    </div>
+                    <div class="dates-wrapper">
+                        <div class="startDate input-control">
+                            <label id="startDateLabel_[[[[[[[[[[INDEX]]]]]]]]]]">დაწყების რიცხვი</label>
+                            <input type="date" id="startDateInput_[[[[[[[[[[INDEX]]]]]]]]]]"
+                                class="startDateInput dateInputLogo">
+                            <div class="error"></div>
+                        </div>
+                        <img id="startDateErrorImg_[[[[[[[[[[INDEX]]]]]]]]]]">
+                        <div class="endDate input-control">
+                            <label id="endDateLabel_[[[[[[[[[[INDEX]]]]]]]]]]">დამთავრების რიცხვი</label>
+                            <input type="date" id="endDateInput_[[[[[[[[[[INDEX]]]]]]]]]]" class="endDateInput dateInputLogo">
+                            <div class="error"></div>
+                        </div>
+                        <img id="endDateErrorImg_[[[[[[[[[[INDEX]]]]]]]]]]">
+                    </div>
+                    <div class="description-wrapper">
+                        <div class="description input-control">
+                            <label id="descriptionLabel_[[[[[[[[[[INDEX]]]]]]]]]]">აღწერა</label>
+                            <textarea type="text" id="descriptionInput_[[[[[[[[[[INDEX]]]]]]]]]]" class="descriptionInput"
+                                placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"></textarea>
+                            <div class="error"></div>
+                        </div>
+                        <img id="descriptionErrorImg_[[[[[[[[[[INDEX]]]]]]]]]]">
+                    </div>
+                    <div class="line-wrapper">
+                        <div class="line"></div>
+                    </div>
+                </div> -->
+
+        <!-- FORM-3-END -->
         <div class="generateExperienceForm-wrapper">
             <button class="generateNewFormBtn" id="generateNewFormBtn">მეტი გამოცდილების დამატება</button>
         </div>
@@ -136,6 +246,11 @@
             </div>
         </div>
     </div>
+
+
+
+
+
     <div class="form-info-display">
         <div class="info-picture-wrapper">
             <div class="info-container">
@@ -166,6 +281,8 @@
         <div class="separator-line-wrapper">
             <div class="infoDisplaySeparator"></div>
         </div>
+
+        <!-- FORM START -->
         <div class="experienceInfoForm" id="experienceInfoForm">
             <h2 class="experienceInfoHeader" id="experienceFormInfoHeader"></h2>
             <div class="positionEmployeeForm">
@@ -181,26 +298,92 @@
                 <p id="formDescription" class="formDescription"></p>
             </div>
         </div>
-        <div id="displayFormContainer">
-            <!-- new form inputs dynamically display here -->
-        </div>
-        <template id="newExperienceInfoForm" class="newExperienceInfoForm">
-            <div class="experienceInfoForm" id="experienceInfoForm">
-                <h2 class="experienceInfoHeader" id="experienceFormInfoHeader"></h2>
-                <div class="positionEmployeeForm">
-                    <p id="formPosition_ID_PLACEHOLDER" class="formPosition"></p>
-                    <p id="formEmployer_ID_PLACEHOLDER" class="formEmployer"></p>
-                </div>
-                <div class="startEndDateForm">
-                    <p id="formStartDate_ID_PLACEHOLDER" class="formStartDate"></p>
-                    <p id="dash_ID_PLACEHOLDER" class="dash"></p>
-                    <p id="formEndDate_ID_PLACEHOLDER" class="formEndDate"></p>
-                </div>
-                <div class="formDescription">
-                    <p id="formDescription_ID_PLACEHOLDER" class="formDescription"></p>
-                </div>
+        <!-- FORM END -->
+
+        <!-- FORM-1 DISPLAY START -->
+
+        <div class="experienceInfoForm" id="experienceInfoForm_1">
+            <h2 class="experienceInfoHeader" id="experienceFormInfoHeader_1"></h2>
+            <div class="positionEmployeeForm">
+                <p id="formPosition_1" class="formPosition"></p>
+                <p id="formEmployer_1" class="formEmployer"></p>
             </div>
-        </template>
+            <div class="startEndDateForm">
+                <p id="formStartDate_1" class="formStartDate"></p>
+                <p id="dash_1" class="dash"></p>
+                <p id="formEndDate_1" class="formEndDate"></p>
+            </div>
+            <div class="formDescription">
+                <p id="formDescription_1" class="formDescription"></p>
+            </div>
+        </div>
+
+
+        <!-- FORM-1 DISPLAY END -->
+
+        <!--FORM-2 DISPLAY START-->
+
+        <div class="experienceInfoForm" id="experienceInfoForm_2">
+            <h2 class="experienceInfoHeader" id="experienceFormInfoHeader_2"></h2>
+            <div class="positionEmployeeForm">
+                <p id="formPosition_2" class="formPosition"></p>
+                <p id="formEmployer_2" class="formEmployer"></p>
+            </div>
+            <div class="startEndDateForm">
+                <p id="formStartDate_2" class="formStartDate"></p>
+                <p id="dash_2" class="dash"></p>
+                <p id="formEndDate_2" class="formEndDate"></p>
+            </div>
+            <div class="formDescription">
+                <p id="formDescription_2" class="formDescription"></p>
+            </div>
+        </div>
+
+
+        <!-- FORM-2 DISPLAY END -->
+
+        <!--FORM-3 DISPLAY START-->
+
+        <!-- <div class="experienceInfoForm" id="experienceInfoForm_3">
+            <h2 class="experienceInfoHeader" id="experienceFormInfoHeader-[[[[[[[[[[INDEX]]]]]]]]]]"></h2>
+            <div class="positionEmployeeForm">
+                <p id="formPosition-[[[[[[[[[[INDEX]]]]]]]]]]" class="formPosition"></p>
+                <p id="formEmployer-[[[[[[[[[[INDEX]]]]]]]]]]" class="formEmployer"></p>
+            </div>
+            <div class="startEndDateForm">
+                <p id="formStartDate-[[[[[[[[[[INDEX]]]]]]]]]]" class="formStartDate"></p>
+                <p id="dash-[[[[[[[[[[INDEX]]]]]]]]]]" class="dash"></p>
+                <p id="formEndDate-[[[[[[[[[[INDEX]]]]]]]]]]" class="formEndDate"></p>
+            </div>
+            <div class="formDescription">
+                <p id="formDescription-[[[[[[[[[[INDEX]]]]]]]]]]" class="formDescription"></p>
+            </div>
+        </div>  -->
+
+
+        <!-- FORM-3 DISPLAY END -->
+
+        <!--FORM-4 DISPLAY START-->
+
+        <!-- <div class="experienceInfoForm" id="experienceInfoForm_2">
+            <h2 class="experienceInfoHeader" id="experienceFormInfoHeader-[[[[[[[[[[INDEX]]]]]]]]]]"></h2>
+            <div class="positionEmployeeForm">
+                <p id="formPosition-[[[[[[[[[[INDEX]]]]]]]]]]" class="formPosition"></p>
+                <p id="formEmployer-[[[[[[[[[[INDEX]]]]]]]]]]" class="formEmployer"></p>
+            </div>
+            <div class="startEndDateForm">
+                <p id="formStartDate-[[[[[[[[[[INDEX]]]]]]]]]]" class="formStartDate"></p>
+                <p id="dash-[[[[[[[[[[INDEX]]]]]]]]]]" class="dash"></p>
+                <p id="formEndDate-[[[[[[[[[[INDEX]]]]]]]]]]" class="formEndDate"></p>
+            </div>
+            <div class="formDescription">
+                <p id="formDescription-[[[[[[[[[[INDEX]]]]]]]]]]" class="formDescription"></p>
+            </div>
+        </div>  -->
+
+
+        <!-- FORM-4 DISPLAY END -->
+
         <div class="footer">
             <img src="./assets/icons/sparkle.svg" alt="sparkle">
         </div>
