@@ -2,7 +2,6 @@ let educationInfoHeader = document.getElementById('educationInfoHeader');
 let perviousPageBtn = document.getElementById('backToPreviousPageBtn');
 let nextPageBtn = document.getElementById('nextPageButton');
 const generateNewFormBtn = document.getElementById('generateNewFormBtn');
-let degrees = [];
 const educationInputElement = document.getElementById('educationInput');
 let qualificationSelectElement = document.getElementById('qualification');
 const endDateInputElement = document.getElementById('endDateInput');
@@ -10,7 +9,7 @@ const descriptionInputElement = document.getElementById('descriptionInput');
 educationInfoHeader.innerHTML = 'განათლება'.toUpperCase();
 perviousPageBtn.innerHTML = 'უკან'.toUpperCase();
 nextPageBtn.innerHTML = 'დასრულება'.toUpperCase();
-
+const degrees = [];
 fetch('https://resume.redberryinternship.ge/api/degrees')
   .then(response => response.json())
   .then(degreesData => {
@@ -20,6 +19,13 @@ fetch('https://resume.redberryinternship.ge/api/degrees')
         `;
       degrees.push(degree);
     });
+
+    qualificationSelectElement.value = sessionStorage.getItem('degree');
+    validateQualificationSelect();
+
+    document.getElementById('formQualification').innerText = degreesData.find(
+      degreeName => sessionStorage.getItem('degree') == degreeName.id
+    ).title;
   });
 
 educationInputElement.addEventListener('input', handleEducationInput);
@@ -134,7 +140,10 @@ function validateEducationDescriptionInput() {
   let educationDescriptionInputIsValid = true;
   let descriptionValue = descriptionInputElement.value;
   let descriptionErrorImg = document.getElementById('descriptionErrorImg');
-  if (!isFilled(descriptionValue)) {
+  if (
+    !isFilled(descriptionValue) ||
+    descriptionValue.replaceAll(' ', '') === ''
+  ) {
     educationDescriptionInputIsValid = false;
     descriptionInputElement.style.borderColor = '#ef5050';
     descriptionErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
@@ -191,7 +200,9 @@ experienceInfoHeader.innerHTML = 'გამოცდილება'.toUpperCase
 
 let click = 0;
 generateNewFormBtn.addEventListener('click', () => {
-  click++;
+  if (click < 4) {
+    click++;
+  }
   let amountOfEducationFormsGenerated = click;
   localStorage.setItem(
     'amountOfEducationFormsGenerated',
@@ -258,14 +269,9 @@ window.onbeforeunload = function saveDataBeforeRefresh() {
 
 window.onload = function () {
   educationInputElement.value = sessionStorage.getItem('education');
-  qualificationSelectElement.value = sessionStorage.getItem('degree');
   endDateInputElement.value = sessionStorage.getItem('educationEndDate');
   descriptionInputElement.value = sessionStorage.getItem(
     'educationDescription'
-  );
-
-  let degreesSearch = degrees.find(
-    degree => degree.id == parseInt(sessionStorage.getItem('degree'))
   );
 
   if (
@@ -275,12 +281,11 @@ window.onload = function () {
     sessionStorage.getItem('educationDescription') !== null
   ) {
     handleEducationInput();
-    handleQualificationSelect();
     handleEndDateInput();
     handleDescriptionInput();
+
+    handleQualificationSelect();
   }
-  // document.getElementById('formQualification').innerHTML =
-  //   degreesSearch.title;
 };
 
 // Turning local storage base 64 string to blob for FormData

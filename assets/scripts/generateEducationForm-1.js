@@ -25,6 +25,13 @@ fetch('https://resume.redberryinternship.ge/api/degrees')
         `;
       degrees.push(degree);
     });
+
+    qualificationSelectElement_1.value = sessionStorage.getItem('degree_1');
+    validateQualificationSelect_1();
+
+    document.getElementById('formQualification_1').innerHTML = degreesData.find(
+      degreeName => sessionStorage.getItem('degree_1') == degreeName.id
+    ).title;
   });
 
 educationInputElement_1.addEventListener('input', handleEducationInput_1);
@@ -156,7 +163,10 @@ function validateEducationDescriptionInput_1() {
   let educationDescriptionInputIsValid = true;
   let descriptionValue = descriptionInputElement_1.value;
   let descriptionErrorImg = document.getElementById('descriptionErrorImg_1');
-  if (!isFilled(descriptionValue)) {
+  if (
+    !isFilled(descriptionValue) ||
+    descriptionValue.replaceAll(' ', '') === ''
+  ) {
     educationDescriptionInputIsValid = false;
     descriptionInputElement_1.style.borderColor = '#ef5050';
     descriptionErrorImg.setAttribute('src', './assets/icons/error-warning.svg');

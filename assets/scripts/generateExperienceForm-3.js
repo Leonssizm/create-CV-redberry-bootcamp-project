@@ -151,7 +151,10 @@ function validateDescriptionInput_3() {
   let descriptionValue = jobDescriptionInputElement_3.value;
   let descriptionErrorImg = document.getElementById('descriptionErrorImg_3');
 
-  if (!isFilled(descriptionValue)) {
+  if (
+    !isFilled(descriptionValue) ||
+    descriptionValue.replaceAll(' ', '') === ''
+  ) {
     jobDescriptionInputIsValid = false;
     jobDescriptionInputElement_3.style.borderColor = '#ef5050';
     descriptionErrorImg.setAttribute('src', './assets/icons/error-warning.svg');

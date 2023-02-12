@@ -23,8 +23,12 @@ fetch('https://resume.redberryinternship.ge/api/degrees')
       qualificationSelectElement_2.innerHTML += `
         <option value="${degree.id}" id="${degree.id}">${degree.title}</option>
         `;
-      degrees.push(degree);
     });
+    qualificationSelectElement_2.value = sessionStorage.getItem('degree_2');
+    validateQualificationSelect_2();
+    // document.getElementById('formQualification_2').innerText = degreesData.find(
+    //   degreeName => sessionStorage.getItem('degree_2') == degreeName.id
+    // ).title;
   });
 
 educationInputElement_2.addEventListener('input', handleEducationInput_2);
@@ -52,11 +56,6 @@ function handleQualificationSelect_2() {
 
   if (qualificationSelectValue === '') {
     formQualification.innerHTML = '';
-  } else {
-    let degreesSearch = degrees.find(
-      degree => degree.id == qualificationSelectValue
-    ).title;
-    formQualification.innerHTML = degreesSearch;
   }
   sessionStorage.setItem('degree_2', qualificationSelectElement_2.value);
 }
@@ -156,7 +155,10 @@ function validateEducationDescriptionInput_2() {
   let educationDescriptionInputIsValid = true;
   let descriptionValue = descriptionInputElement_2.value;
   let descriptionErrorImg = document.getElementById('descriptionErrorImg_2');
-  if (!isFilled(descriptionValue)) {
+  if (
+    !isFilled(descriptionValue) ||
+    descriptionValue.replaceAll(' ', '') === ''
+  ) {
     educationDescriptionInputIsValid = false;
     descriptionInputElement_2.style.borderColor = '#ef5050';
     descriptionErrorImg.setAttribute('src', './assets/icons/error-warning.svg');

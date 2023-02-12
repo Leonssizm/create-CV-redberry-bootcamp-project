@@ -148,7 +148,10 @@ function validateDescriptionInput() {
   let jobDescriptionInputIsValid = true;
   let descriptionValue = jobDescriptionInputElement.value;
   let descriptionErrorImg = document.getElementById('descriptionErrorImg');
-  if (!isFilled(descriptionValue)) {
+  if (
+    !isFilled(descriptionValue) ||
+    descriptionValue.replaceAll(' ', '') === ''
+  ) {
     jobDescriptionInputIsValid = false;
     jobDescriptionInputElement.style.borderColor = '#ef5050';
     descriptionErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
@@ -204,7 +207,9 @@ formTelephoneSignImg.setAttribute('src', './assets/icons/phone.svg');
 
 let click = 0;
 generateNewFormBtn.addEventListener('click', () => {
-  click++;
+  if (click < 4) {
+    click++;
+  }
   let amountOfExperienceFormsGenerated = click;
   localStorage.setItem(
     'amountOfExperienceFormsGenerated',
@@ -317,51 +322,70 @@ nextPageButton.addEventListener('click', () => {
       due_date: endDateInputElement.value,
       description: jobDescriptionInputElement.value,
     };
-    experiencesFromLocalStorage.push(data);
 
-    if (amountOfExperienceFormsGenerated >= 1 && experienceIsFullyFilled(1)) {
-      let data_1 = {
-        position: positionInputElement_1.value,
-        employer: employerInputElement_1.value,
-        start_date: startDateInputElement_1.value,
-        due_date: endDateInputElement_1.value,
-        description: jobDescriptionInputElement_1.value,
-      };
+    if (experienceIsNotFoundInLocalStorage(data, experiencesFromLocalStorage)) {
+      experiencesFromLocalStorage.push(data);
+    }
 
+    let data_1 = {
+      position: positionInputElement_1.value,
+      employer: employerInputElement_1.value,
+      start_date: startDateInputElement_1.value,
+      due_date: endDateInputElement_1.value,
+      description: jobDescriptionInputElement_1.value,
+    };
+
+    if (
+      amountOfExperienceFormsGenerated >= 1 &&
+      experienceIsFullyFilled(1) &&
+      experienceIsNotFoundInLocalStorage(data_1, experiencesFromLocalStorage)
+    ) {
       experiencesFromLocalStorage.push(data_1);
     }
 
-    if (amountOfExperienceFormsGenerated >= 2 && experienceIsFullyFilled(2)) {
-      let data_2 = {
-        position: positionInputElement_2.value,
-        employer: employerInputElement_2.value,
-        start_date: startDateInputElement_2.value,
-        due_date: endDateInputElement_2.value,
-        description: jobDescriptionInputElement_2.value,
-      };
+    let data_2 = {
+      position: positionInputElement_2.value,
+      employer: employerInputElement_2.value,
+      start_date: startDateInputElement_2.value,
+      due_date: endDateInputElement_2.value,
+      description: jobDescriptionInputElement_2.value,
+    };
 
+    if (
+      amountOfExperienceFormsGenerated >= 2 &&
+      experienceIsFullyFilled(2) &&
+      experienceIsNotFoundInLocalStorage(data_2, experiencesFromLocalStorage)
+    ) {
       experiencesFromLocalStorage.push(data_2);
     }
-    if (amountOfExperienceFormsGenerated >= 3 && experienceIsFullyFilled(3)) {
-      let data_3 = {
-        position: positionInputElement_3.value,
-        employer: employerInputElement_3.value,
-        start_date: startDateInputElement_3.value,
-        due_date: endDateInputElement_3.value,
-        description: jobDescriptionInputElement_3.value,
-      };
 
+    let data_3 = {
+      position: positionInputElement_3.value,
+      employer: employerInputElement_3.value,
+      start_date: startDateInputElement_3.value,
+      due_date: endDateInputElement_3.value,
+      description: jobDescriptionInputElement_3.value,
+    };
+    if (
+      amountOfExperienceFormsGenerated >= 3 &&
+      experienceIsFullyFilled(3) &&
+      experienceIsNotFoundInLocalStorage(data_3, experiencesFromLocalStorage)
+    ) {
       experiencesFromLocalStorage.push(data_3);
     }
-    if (amountOfExperienceFormsGenerated >= 4 && experienceIsFullyFilled(4)) {
-      let data_4 = {
-        position: positionInputElement_4.value,
-        employer: employerInputElement_4.value,
-        start_date: startDateInputElement_4.value,
-        due_date: endDateInputElement_4.value,
-        description: jobDescriptionInputElement_4.value,
-      };
 
+    let data_4 = {
+      position: positionInputElement_4.value,
+      employer: employerInputElement_4.value,
+      start_date: startDateInputElement_4.value,
+      due_date: endDateInputElement_4.value,
+      description: jobDescriptionInputElement_4.value,
+    };
+    if (
+      amountOfExperienceFormsGenerated >= 4 &&
+      experienceIsFullyFilled(4) &&
+      experienceIsNotFoundInLocalStorage(data_4, experiencesFromLocalStorage)
+    ) {
       experiencesFromLocalStorage.push(data_4);
     }
 
@@ -374,3 +398,20 @@ nextPageButton.addEventListener('click', () => {
     return;
   }
 });
+
+function experienceIsNotFoundInLocalStorage(newExperience, experiencesArray) {
+  let experienceIndex = experiencesArray.findIndex(experience => {
+    console.log('=============================');
+
+    console.log(newExperience);
+    console.log(experience);
+
+    return (
+      experience.position == newExperience.position &&
+      experience.employer == newExperience.employer
+    );
+  });
+  console.log('=============== INDEX ==============');
+  console.log(experienceIndex);
+  return experienceIndex === -1;
+}
