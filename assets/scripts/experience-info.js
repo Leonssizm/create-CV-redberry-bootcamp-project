@@ -320,7 +320,7 @@ nextPageButton.addEventListener('click', () => {
     };
     experiencesFromLocalStorage.push(data);
 
-    if (amountOfExperienceFormsGenerated >= 1 && experienceIsFullyFIlled(1)) {
+    if (amountOfExperienceFormsGenerated >= 1 && experienceIsFullyFilled(1)) {
       let data_1 = {
         position: positionInputElement_1.value,
         employer: employerInputElement_1.value,
@@ -332,7 +332,7 @@ nextPageButton.addEventListener('click', () => {
       experiencesFromLocalStorage.push(data_1);
     }
 
-    if (amountOfExperienceFormsGenerated >= 2 && experienceIsFullyFIlled(2)) {
+    if (amountOfExperienceFormsGenerated >= 2 && experienceIsFullyFilled(2)) {
       let data_2 = {
         position: positionInputElement_2.value,
         employer: employerInputElement_2.value,
@@ -343,7 +343,7 @@ nextPageButton.addEventListener('click', () => {
 
       experiencesFromLocalStorage.push(data_2);
     }
-    if (amountOfExperienceFormsGenerated >= 3 && experienceIsFullyFIlled(3)) {
+    if (amountOfExperienceFormsGenerated >= 3 && experienceIsFullyFilled(3)) {
       let data_3 = {
         position: positionInputElement_3.value,
         employer: employerInputElement_3.value,
@@ -354,7 +354,7 @@ nextPageButton.addEventListener('click', () => {
 
       experiencesFromLocalStorage.push(data_3);
     }
-    if (amountOfExperienceFormsGenerated >= 4 && experienceIsFullyFIlled(4)) {
+    if (amountOfExperienceFormsGenerated >= 4 && experienceIsFullyFilled(4)) {
       let data_4 = {
         position: positionInputElement_4.value,
         employer: employerInputElement_4.value,

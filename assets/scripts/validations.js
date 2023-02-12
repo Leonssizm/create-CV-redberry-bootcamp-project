@@ -32,7 +32,7 @@ function setSuccess(element, message, label) {
   inputControl.classList.remove('error');
 }
 
-function experienceIsFullyFIlled(index) {
+function experienceIsFullyFilled(index) {
   const position = document.getElementById('positionInput_' + index).value;
   const employer = document.getElementById('employerInput_' + index).value;
   const startDate = document.getElementById('startDateInput_' + index).value;
@@ -44,6 +44,25 @@ function experienceIsFullyFIlled(index) {
     position != '' &&
     employer != '' &&
     startDate != '' &&
+    endDate != '' &&
+    description != ''
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function educationIsFullyFilled(index) {
+  const education = document.getElementById('educationInput_' + index).value;
+  const qualification = document.getElementById('qualificationInput_' + index);
+  const endDate = document.getElementById('endDateInput_' + index).value;
+  const description = document.getElementById(
+    'descriptionInput_' + index
+  ).value;
+  if (
+    education != '' &&
+    qualification != '' &&
     endDate != '' &&
     description != ''
   ) {

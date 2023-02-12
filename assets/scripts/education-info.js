@@ -1,6 +1,7 @@
 let educationInfoHeader = document.getElementById('educationInfoHeader');
 let perviousPageBtn = document.getElementById('backToPreviousPageBtn');
 let nextPageBtn = document.getElementById('nextPageButton');
+const generateNewFormBtn = document.getElementById('generateNewFormBtn');
 let degrees = [];
 const educationInputElement = document.getElementById('educationInput');
 let qualificationSelectElement = document.getElementById('qualification');
@@ -64,8 +65,8 @@ function handleDescriptionInput() {
     'formEducationDescription'
   );
   let educationDescriptionValue = descriptionInputElement.value;
-  validateEducationDescriptionInput();
   educationDescriptionForm.innerHTML = educationDescriptionValue;
+  validateEducationDescriptionInput();
 }
 
 // validation Logic
@@ -134,7 +135,7 @@ function validateEducationDescriptionInput() {
   let descriptionValue = descriptionInputElement.value;
   let descriptionErrorImg = document.getElementById('descriptionErrorImg');
   if (!isFilled(descriptionValue)) {
-    jobDescriptionInputIsValid = false;
+    educationDescriptionInputIsValid = false;
     descriptionInputElement.style.borderColor = '#ef5050';
     descriptionErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
     descriptionInputElement.classList.remove('validatedCheckLargeInputs');
@@ -187,6 +188,65 @@ formStartDateElement.innerHTML = experiences[0].start_date;
 formEndDateElement.innerHTML = experiences[0].due_date;
 formDescriptionElement.innerHTML = experiences[0].description;
 
+// add New forms
+
+let click = 0;
+generateNewFormBtn.addEventListener('click', () => {
+  click++;
+  let amountOfEducationFormsGenerated = click;
+  localStorage.setItem(
+    'amountOfEducationFormsGenerated',
+    JSON.stringify(amountOfEducationFormsGenerated)
+  );
+
+  if (click == 1) {
+    generateNewForm_1();
+  }
+  // else if (click == 2) {
+  //   generateNewForm_2();
+  // } else if (click == 3) {
+  //   generateNewForm_3();
+  // } else if (click == 4) {
+  //   generateNewForm_4();
+  // }
+});
+
+let generatedEducationForms = JSON.parse(
+  localStorage.getItem('amountOfEducationFormsGenerated')
+);
+click = generatedEducationForms;
+
+if (generatedEducationForms == 1) {
+  displayForm_1();
+  generateNewForm_1();
+}
+// if (generatedEducationForms == 2) {
+//   displayForm_1();
+//   generateNewForm_1();
+//   displayForm_2();
+//   generateNewForm_2();
+// }
+// if (generatedEducationForms == 3) {
+//   displayForm_1();
+//   generateNewForm_1();
+//   displayForm_2();
+//   generateNewForm_2();
+//   displayForm_3();
+//   generateNewForm_3();
+//   // ADD EACH ONE HERE displayForm_1 _2 _3....
+// }
+// if (generatedEducationForms == 4) {
+//   displayForm_1();
+//   generateNewForm_1();
+//   displayForm_2();
+//   generateNewForm_2();
+//   displayForm_3();
+//   generateNewForm_3();
+//   displayForm_4();
+//   generateNewForm_4();
+//   // ADD EACH ONE HERE displayForm_1 _2 _3....
+// }
+
 window.onbeforeunload = function saveDataBeforeRefresh() {
   sessionStorage.setItem('education', educationInputElement.value);
   sessionStorage.setItem('degree', qualificationSelectElement.value);
@@ -201,18 +261,17 @@ window.onload = function () {
   descriptionInputElement.value = sessionStorage.getItem(
     'educationDescription'
   );
+
   let degreesSearch = degrees.find(
     degree => degree.id == parseInt(sessionStorage.getItem('degree'))
   );
 
-  if (sessionStorage.getItem('education') !== null) {
-    handleEducationInput() &&
-      handleQualificationSelect() &&
-      handleEndDateInput() &&
-      handleDescriptionInput();
-    document.getElementById('formQualification').innerHTML =
-      degreesSearch.title;
-  }
+  if (sessionStorage.getItem('education') !== null) handleEducationInput();
+  handleQualificationSelect();
+  handleEndDateInput();
+  handleDescriptionInput();
+  // document.getElementById('formQualification').innerHTML =
+  //   degreesSearch.title;
 };
 
 // Turning local storage base 64 string to blob for FormData
@@ -241,6 +300,9 @@ function sendData() {
     let educationsFromLocalStorage = JSON.parse(
       localStorage.getItem('educations')
     );
+    const amountOfEducationFormsGenerated = localStorage.getItem(
+      'amountOfEducationFormsGenerated'
+    );
     let data = {
       institute: educationInputElement.value,
       degree_id: qualificationSelectElement.value,
@@ -248,6 +310,16 @@ function sendData() {
       description: descriptionInputElement.value,
     };
     educationsFromLocalStorage.push(data);
+
+    if (amountOfEducationFormsGenerated >= 1 && educationIsFullyFilled(1)) {
+      let data_1 = {
+        institute: educationInputElement_1.value,
+        degree_id: qualificationSelectElement_1.value,
+        due_date: endDateInputElement_1.value,
+        description: descriptionInputElement_1.value,
+      };
+      educationsFromLocalStorage.push(data_1);
+    }
     localStorage.setItem(
       'educations',
       JSON.stringify(educationsFromLocalStorage)

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/education-info.css">
     <script src="./assets/scripts/validations.js" defer></script>
+    <script src="./assets/scripts/generateEducationForm-1.js" defer></script>
     <script src="./assets/scripts/education-info.js" defer></script>
     <title>Education Info</title>
 </head>
@@ -24,49 +25,126 @@
                 </header>
             </div>
         </div>
-        <div class="education-wrapper">
+        <!-- FORM - START -->
+        <div id="education_form">
+            <div class="education-wrapper">
+                <div class="education input-control">
+                    <label id="educationLabel">სასწავლებელი</label>
+                    <input type="text" id="educationInput" class="educationInput" placeholder="სასწავლებელი">
+                    <div class="error">მინიმუმ 2 სიმბოლო</div>
+                </div>
+                <img id="educationErrorImg">
+            </div>
+            <div class="qualification-endDate-wrapper">
+                <div class="qualification input-control">
+                    <label id="qualificationLabel">ხარისხი</label>
+                    <select name="qualification" id="qualification" class="qualificationSelect">
+                        <option value="" class="disabledIcon" disabled selected hidden>აირჩიეთ ხარისხი</option>
+                    </select>
+                    <div class="error"></div>
+                </div>
+                <img id="qualificationErrorImg">
+                <div class="endDate input-control">
+                    <label id="endDateLabel">დამთავრების რიცხვი</label>
+                    <input type="date" id="endDateInput" class="endDateInput dateInputLogo">
+                    <div class="error"></div>
+                </div>
+                <img id="endDateErrorImg">
+            </div>
+            <div class="description-wrapper">
+                <div class="description input-control">
+                    <label id="descriptionLabel">აღწერა</label>
+                    <input type="text" id="descriptionInput" class="descriptionInput" placeholder="განათლების აღწერა">
+                    <div class="error"></div>
+                </div>
+                <img id="descriptionErrorImg">
+            </div>
+            <div class="line-wrapper">
+                <div class="line"></div>
+            </div>
+        </div>
+        <!-- FORM - END -->
+
+        <!-- FORM - 1 - START -->
+        <div id="education_form_1">
+            <div class="education-wrapper">
+                <div class="education input-control">
+                    <label id="educationLabel_1">სასწავლებელი</label>
+                    <input type="text" id="educationInput_1" class="educationInput" placeholder="სასწავლებელი">
+                    <div class="error">მინიმუმ 2 სიმბოლო</div>
+                </div>
+                <img id="educationErrorImg_1">
+            </div>
+            <div class="qualification-endDate-wrapper">
+                <div class="qualification input-control">
+                    <label id="qualificationLabel_1">ხარისხი</label>
+                    <select name="qualification" id="qualification_1" class="qualificationSelect">
+                        <option value="" class="disabledIcon" disabled selected hidden>აირჩიეთ ხარისხი</option>
+                    </select>
+                    <div class="error"></div>
+                </div>
+                <img id="qualificationErrorImg_1">
+
+                <div class="endDate input-control">
+                    <label id="endDateLabel_1">დამთავრების რიცხვი</label>
+                    <input type="date" id="endDateInput_1" class="endDateInput dateInputLogo">
+                    <div class="error"></div>
+                </div>
+                <img id="endDateErrorImg_1">
+            </div>
+            <div class="description-wrapper">
+                <div class="description input-control">
+                    <label id="descriptionLabel_1">აღწერა</label>
+                    <input type="text" id="descriptionInput_1" class="descriptionInput" placeholder="განათლების აღწერა">
+                    <div class="error"></div>
+                </div>
+                <img id="descriptionErrorImg_1">
+            </div>
+            <div class="line-wrapper">
+                <div class="line"></div>
+            </div>
+        </div>
+        <!-- FORM - 1 END -->
+
+        <!-- FORM - 2 - START -->
+        <!-- <div id="education_form_2">
+            <div class="education-wrapper">
             <div class="education input-control">
-                <label id="educationLabel">სასწავლებელი</label>
-                <input type="text" id="educationInput" class="educationInput" placeholder="სასწავლებელი">
+                <label id="educationLabel_[[[[[[index]]]]]]]">სასწავლებელი</label>
+                <input type="text" id="educationInput_[[[[[[index]]]]]]]" class="educationInput" placeholder="სასწავლებელი">
                 <div class="error">მინიმუმ 2 სიმბოლო</div>
             </div>
-            <img id="educationErrorImg">
+            <img id="educationErrorImg_[[[[[[index]]]]]]]">
         </div>
         <div class="qualification-endDate-wrapper">
             <div class="qualification input-control">
-                <label id="qualificationLabel">ხარისხი</label>
-                <select name="qualification" id="qualification" class="qualificationSelect">
+                <label id="qualificationLabel_[[[[[[index]]]]]]]">ხარისხი</label>
+                <select name="qualification" id="qualification_[[[[[[index]]]]]]]" class="qualificationSelect">
                     <option value="" class="disabledIcon" disabled selected hidden>აირჩიეთ ხარისხი</option>
                 </select>
                 <div class="error"></div>
             </div>
-            <img id="qualificationErrorImg">
+            <img id="qualificationErrorImg_[[[[[[index]]]]]]]">
             <div class="endDate input-control">
-                <label id="endDateLabel">დამთავრების რიცხვი</label>
-                <input type="date" id="endDateInput" class="endDateInput dateInputLogo">
+                <label id="endDateLabel_[[[[[[index]]]]]]]">დამთავრების რიცხვი</label>
+                <input type="date" id="endDateInput_[[[[[[index]]]]]]]" class="endDateInput dateInputLogo">
                 <div class="error"></div>
             </div>
-            <img id="endDateErrorImg">
+            <img id="endDateErrorImg_[[[[[[index]]]]]]]">
         </div>
         <div class="description-wrapper">
             <div class="description input-control">
-                <label id="descriptionLabel">აღწერა</label>
-                <input type="text" id="descriptionInput" class="descriptionInput" placeholder="განათლების აღწერა">
+                <label id="descriptionLabel_[[[[[[index]]]]]]]">აღწერა</label>
+                <input type="text" id="descriptionInput_[[[[[[index]]]]]]]" class="descriptionInput" placeholder="განათლების აღწერა">
                 <div class="error"></div>
             </div>
-            <img id="descriptionErrorImg">
+            <img id="descriptionErrorImg_[[[[[[index]]]]]]]">
         </div>
         <div class="line-wrapper">
             <div class="line"></div>
         </div>
-        <div id="container">
-            <!-- cloned forms go here -->
-        </div>
-        <!-- New Form -->
-        <template id="newFormTemplate" class="newFormContainer">
-
-        </template>
-        <!--  -->
+        </div> -->
+        <!-- FORM - 2 END -->
         <div class="generateExperienceForm-wrapper">
             <button class="generateNewFormBtn" id="generateNewFormBtn">მეტი გამოცდილების დამატება</button>
         </div>
@@ -127,6 +205,7 @@
         <div class="separator-line-wrapper">
             <div class="infoDisplaySeparator"></div>
         </div>
+        <!-- education display form start -->
         <div class="educationInfoForm" id="educationInfoForm">
             <h2 class="educationInfoHeader" id="educationFormInfoHeader"></h2>
             <div class="educationQualificationForm">
@@ -140,6 +219,39 @@
                 <p class="formEducationDescription" id="formEducationDescription"></p>
             </div>
         </div>
+        <!-- education display form end -->
+
+        <!-- education display FORM - 1 START -->
+        <div class="educationInfoForm" id="educationInfoForm_1">
+            <h2 class="educationInfoHeader" id="educationFormInfoHeader"></h2>
+            <div class="educationQualificationForm">
+                <p id="formEducation_1" class="formEducation"></p>
+                <p id="formQualification_1" class="formQualification"></p>
+            </div>
+            <div class="educationEndDate">
+                <p class="formEducationEndDate" id="formEducationEndDate_1"></p>
+            </div>
+            <div class="educationDescription">
+                <p class="formEducationDescription" id="formEducationDescription_1"></p>
+            </div>
+        </div>
+        <!-- education display FORM - 1 END -->
+
+        <!-- education display FORM - 2 START -->
+        <!-- <div class="educationInfoForm" id="educationInfoForm_2">
+            <h2 class="educationInfoHeader" id="educationFormInfoHeader_[[[[[[[INDEX]]]]]]]]"></h2>
+            <div class="educationQualificationForm">
+                <p id="formEducation_[[[[[[[INDEX]]]]]]]]" class="formEducation"></p>
+                <p id="formQualification_[[[[[[[INDEX]]]]]]]]" class="formQualification"></p>
+            </div>
+            <div class="educationEndDate">
+                <p class="formEducationEndDate" id="formEducationEndDate_[[[[[[[INDEX]]]]]]]]"></p>
+            </div>
+            <div class="educationDescription">
+                <p class="formEducationDescription" id="formEducationDescription_[[[[[[[INDEX]]]]]]]]"></p>
+            </div>
+        </div> -->
+        <!-- education display FORM - 2 END -->
         <div class="footer">
             <img src="./assets/icons/sparkle.svg" alt="sparkle">
         </div>
