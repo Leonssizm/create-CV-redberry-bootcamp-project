@@ -166,7 +166,6 @@ function validateEducationDescriptionInput_2() {
   } else {
     descriptionInputElement_2.style.borderColor = '#98e37e';
     descriptionErrorImg.removeAttribute('src');
-    descriptionInputElement_2.classList.add('validatedCheckLargeInputs');
     setSuccess(descriptionInputElement_2, '', 'descriptionLabel_2');
   }
 

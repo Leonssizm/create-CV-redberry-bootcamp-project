@@ -59,7 +59,7 @@ label,
 .imageInputLabel {
   font-family: 'Helvetica Neue';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   line-height: 21px;
   display: flex;
@@ -148,6 +148,11 @@ label,
 .imgInputLabel {
   display: flex;
   margin: 0;
+  font-weight: 600;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
 }
 .imgUploadBtn {
   margin-left: 19px;
@@ -281,6 +286,8 @@ label,
   flex-direction: column;
 }
 #aboutMeFormLabel {
+  margin-top: 34px;
+  margin-bottom: 0;
   font-family: 'Helvetica Neue';
   font-style: normal;
   font-weight: 700;

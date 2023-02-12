@@ -163,7 +163,6 @@ function validateDescriptionInput_2() {
   } else {
     jobDescriptionInputElement_2.style.borderColor = '#98e37e';
     descriptionErrorImg.removeAttribute('src');
-    jobDescriptionInputElement_2.classList.add('validatedCheckLargeInputs');
     setSuccess(jobDescriptionInputElement_2, '', 'descriptionLabel_2');
   }
   return jobDescriptionInputIsValid;
