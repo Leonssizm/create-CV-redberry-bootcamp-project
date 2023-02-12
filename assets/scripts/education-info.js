@@ -181,12 +181,12 @@ aboutMeFormLabel.innerHTML = 'ჩემ შესახებ'.toUpperCase();
 formEmailSignImg.setAttribute('src', './assets/icons/atSign.svg');
 formTelephoneSignImg.setAttribute('src', './assets/icons/phone.svg');
 experienceInfoHeader.innerHTML = 'გამოცდილება'.toUpperCase();
-// TO DO: make dynamic
-formPositionElement.innerHTML = experiences[0].position;
-formEmployerElement.innerHTML = experiences[0].employer;
-formStartDateElement.innerHTML = experiences[0].start_date;
-formEndDateElement.innerHTML = experiences[0].due_date;
-formDescriptionElement.innerHTML = experiences[0].description;
+// // TO DO: make dynamic
+// formPositionElement.innerHTML = experiences[0].position;
+// formEmployerElement.innerHTML = experiences[0].employer;
+// formStartDateElement.innerHTML = experiences[0].start_date;
+// formEndDateElement.innerHTML = experiences[0].due_date;
+// formDescriptionElement.innerHTML = experiences[0].description;
 
 // add New forms
 
@@ -201,14 +201,13 @@ generateNewFormBtn.addEventListener('click', () => {
 
   if (click == 1) {
     generateNewForm_1();
+  } else if (click == 2) {
+    generateNewForm_2();
+  } else if (click == 3) {
+    generateNewForm_3();
+  } else if (click == 4) {
+    generateNewForm_4();
   }
-  // else if (click == 2) {
-  //   generateNewForm_2();
-  // } else if (click == 3) {
-  //   generateNewForm_3();
-  // } else if (click == 4) {
-  //   generateNewForm_4();
-  // }
 });
 
 let generatedEducationForms = JSON.parse(
@@ -220,32 +219,36 @@ if (generatedEducationForms == 1) {
   displayForm_1();
   generateNewForm_1();
 }
-// if (generatedEducationForms == 2) {
-//   displayForm_1();
-//   generateNewForm_1();
-//   displayForm_2();
-//   generateNewForm_2();
-// }
-// if (generatedEducationForms == 3) {
-//   displayForm_1();
-//   generateNewForm_1();
-//   displayForm_2();
-//   generateNewForm_2();
-//   displayForm_3();
-//   generateNewForm_3();
-//   // ADD EACH ONE HERE displayForm_1 _2 _3....
-// }
-// if (generatedEducationForms == 4) {
-//   displayForm_1();
-//   generateNewForm_1();
-//   displayForm_2();
-//   generateNewForm_2();
-//   displayForm_3();
-//   generateNewForm_3();
-//   displayForm_4();
-//   generateNewForm_4();
-//   // ADD EACH ONE HERE displayForm_1 _2 _3....
-// }
+if (generatedEducationForms == 2) {
+  displayForm_1();
+  generateNewForm_1();
+
+  displayForm_2();
+  generateNewForm_2();
+}
+if (generatedEducationForms == 3) {
+  displayForm_1();
+  generateNewForm_1();
+
+  displayForm_2();
+  generateNewForm_2();
+
+  displayForm_3();
+  generateNewForm_3();
+}
+if (generatedEducationForms == 4) {
+  displayForm_1();
+  generateNewForm_1();
+
+  displayForm_2();
+  generateNewForm_2();
+
+  displayForm_3();
+  generateNewForm_3();
+
+  displayForm_4();
+  generateNewForm_4();
+}
 
 window.onbeforeunload = function saveDataBeforeRefresh() {
   sessionStorage.setItem('education', educationInputElement.value);
@@ -266,10 +269,17 @@ window.onload = function () {
     degree => degree.id == parseInt(sessionStorage.getItem('degree'))
   );
 
-  if (sessionStorage.getItem('education') !== null) handleEducationInput();
-  handleQualificationSelect();
-  handleEndDateInput();
-  handleDescriptionInput();
+  if (
+    sessionStorage.getItem('education') !== null &&
+    sessionStorage.getItem('degree') !== null &&
+    sessionStorage.getItem('educationEndDate') !== null &&
+    sessionStorage.getItem('educationDescription') !== null
+  ) {
+    handleEducationInput();
+    handleQualificationSelect();
+    handleEndDateInput();
+    handleDescriptionInput();
+  }
   // document.getElementById('formQualification').innerHTML =
   //   degreesSearch.title;
 };
@@ -320,10 +330,42 @@ function sendData() {
       };
       educationsFromLocalStorage.push(data_1);
     }
+
+    if (amountOfEducationFormsGenerated >= 2 && educationIsFullyFilled(2)) {
+      let data_2 = {
+        institute: educationInputElement_2.value,
+        degree_id: qualificationSelectElement_2.value,
+        due_date: endDateInputElement_2.value,
+        description: descriptionInputElement_2.value,
+      };
+      educationsFromLocalStorage.push(data_2);
+    }
+
+    if (amountOfEducationFormsGenerated >= 3 && educationIsFullyFilled(3)) {
+      let data_3 = {
+        institute: educationInputElement_3.value,
+        degree_id: qualificationSelectElement_3.value,
+        due_date: endDateInputElement_3.value,
+        description: descriptionInputElement_3.value,
+      };
+      educationsFromLocalStorage.push(data_3);
+    }
+    if (amountOfEducationFormsGenerated >= 4 && educationIsFullyFilled(4)) {
+      let data_4 = {
+        institute: educationInputElement_4.value,
+        degree_id: qualificationSelectElement_4.value,
+        due_date: endDateInputElement_4.value,
+        description: descriptionInputElement_4.value,
+      };
+      educationsFromLocalStorage.push(data_4);
+    }
+
     localStorage.setItem(
       'educations',
       JSON.stringify(educationsFromLocalStorage)
     );
+
+    console.log('------------------>', educationsFromLocalStorage);
 
     educationsFromLocalStorage.forEach((education, index) => {
       formData.append(`educations[${index}][institute]`, education.institute);
@@ -374,3 +416,27 @@ function sendData() {
 perviousPageBtn.addEventListener('click', () => {
   window.location.href = './experience-info.html';
 });
+
+const formInfoDisplay = document.getElementById('experienceInfoForm');
+
+for (let i = 0; i < experiences.length; i++) {
+  console.log(experiences[i].position);
+  formInfoDisplay.innerHTML += `
+   
+    <h2 class="experienceInfoHeader" id="experienceFormInfoHeader"></h2>
+    <div class="positionEmployeeForm">
+        <p id="formPosition" class="formPosition">${experiences[i].position}</p>
+        <p id="formEmployer" class="formEmployer">${experiences[i].employer}</p>
+    </div>
+    <div class="startEndDateForm">
+        <p id="formStartDate" class="formStartDate">${experiences[i].start_date}</p>
+        <p id="dash" class="dash"></p>
+        <p id="formEndDate" class="formEndDate">${experiences[i].due_date}</p>
+    </div>
+    <div class="formDescription">
+        <p id="formDescription" class="formDescription">${experiences[i].description}</p>
+    </div>
+ 
+
+    `;
+}

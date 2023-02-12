@@ -76,7 +76,6 @@ html {
 }
 .personal-info-wrapper {
   display: flex;
-  margin-right: 112px;
   padding-top: 30px;
 }
 .name-surname {
@@ -148,4 +147,122 @@ html {
   width: 662px;
   height: 0px;
   border: 1px solid #c8c8c8;
+}
+
+/* Experience Info form stylings */
+.experienceInfoForm {
+  margin: 24px 0 0 80px;
+}
+.experienceInfoHeaderCV {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.positionEmployeeForm {
+  display: flex;
+}
+.formPosition,
+.formEmployer {
+  margin-top: 10px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1a1a;
+  margin-bottom: 7px;
+}
+.formEmployer {
+  margin-left: 7px;
+}
+.startEndDateForm {
+  display: flex;
+}
+
+.formStartDate,
+.formEndDate,
+.dash {
+  margin: 0;
+  font-family: 'Helvetica Neue';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #919191;
+}
+.dash {
+  margin: 0 5px 0 5px;
+  display: flex;
+  align-items: flex-start;
+}
+.formDescription {
+  margin-top: 16px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: capitalize;
+  white-space: normal;
+  color: #000000;
+  margin-right: 80px;
+  word-break: break-word;
+}
+
+/* Educations */
+.educationInfoForm {
+  margin: 24px 0 0 80px;
+}
+.educationQualificationForm {
+  display: flex;
+}
+#educationFormInfoHeaderCV {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #f93b1d;
+}
+.formEducation,
+.formQualification {
+  margin-top: 10px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1a1a;
+  margin-bottom: 7px;
+}
+
+.formEducationEndDate {
+  margin: 0;
+  font-family: 'Helvetica Neue';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #919191;
+}
+.formEducationDescription {
+  margin-top: 16px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: capitalize;
+  white-space: normal;
+  color: #000000;
+  margin-right: 80px;
+  word-break: break-word;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-left: 78px;
 }
