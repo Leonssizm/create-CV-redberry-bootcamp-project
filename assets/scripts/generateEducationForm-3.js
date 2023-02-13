@@ -23,9 +23,12 @@ fetch('https://resume.redberryinternship.ge/api/degrees')
       qualificationSelectElement_3.innerHTML += `
           <option value="${degree.id}" id="${degree.id}">${degree.title}</option>
           `;
-      qualificationSelectElement_3.value = sessionStorage.getItem('degree_3');
-      validateQualificationSelect_3();
     });
+    qualificationSelectElement_3.value = sessionStorage.getItem('degree_3');
+    validateQualificationSelect_3();
+    document.getElementById('formQualification_3').innerText = degreesData.find(
+      degreeName => sessionStorage.getItem('degree_3') == degreeName.id
+    ).title;
   });
 
 educationInputElement_3.addEventListener('input', handleEducationInput_3);
@@ -187,7 +190,7 @@ descriptionInputElement_3.value = sessionStorage.getItem(
 
 if (sessionStorage.getItem('education_3') !== null) {
   document.getElementById('formEducation_3').innerHTML =
-    sessionStorage.getItem('education_3');
+    sessionStorage.getItem('education_3') + ',';
 }
 if (sessionStorage.getItem('degree_3') !== null) {
   document.getElementById('formQualification_3').innerHTML =

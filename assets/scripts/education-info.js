@@ -369,8 +369,6 @@ function sendData() {
       JSON.stringify(educationsFromLocalStorage)
     );
 
-    console.log('------------------>', educationsFromLocalStorage);
-
     educationsFromLocalStorage.forEach((education, index) => {
       formData.append(`educations[${index}][institute]`, education.institute);
       formData.append(`educations[${index}][due_date]`, education.due_date);
@@ -424,7 +422,6 @@ perviousPageBtn.addEventListener('click', () => {
 const formInfoDisplay = document.getElementById('experienceInfoForm');
 
 for (let i = 0; i < experiences.length; i++) {
-  console.log(experiences[i].position);
   formInfoDisplay.innerHTML += `
    
     <h2 class="experienceInfoHeader" id="experienceFormInfoHeader"></h2>
@@ -441,6 +438,5 @@ for (let i = 0; i < experiences.length; i++) {
         <p id="formDescription" class="formDescription">${experiences[i].description}</p>
     </div>
  
-
     `;
 }

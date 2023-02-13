@@ -26,9 +26,9 @@ fetch('https://resume.redberryinternship.ge/api/degrees')
     });
     qualificationSelectElement_2.value = sessionStorage.getItem('degree_2');
     validateQualificationSelect_2();
-    // document.getElementById('formQualification_2').innerText = degreesData.find(
-    //   degreeName => sessionStorage.getItem('degree_2') == degreeName.id
-    // ).title;
+    document.getElementById('formQualification_2').innerText = degreesData.find(
+      degreeName => sessionStorage.getItem('degree_2') == degreeName.id
+    ).title;
   });
 
 educationInputElement_2.addEventListener('input', handleEducationInput_2);
@@ -56,6 +56,11 @@ function handleQualificationSelect_2() {
 
   if (qualificationSelectValue === '') {
     formQualification.innerHTML = '';
+  } else {
+    let degreesSearch = degrees.find(
+      degree => degree.id == qualificationSelectValue
+    ).title;
+    formQualification.innerHTML = degreesSearch;
   }
   sessionStorage.setItem('degree_2', qualificationSelectElement_2.value);
 }
@@ -185,7 +190,7 @@ descriptionInputElement_2.value = sessionStorage.getItem(
 
 if (sessionStorage.getItem('education_2') !== null) {
   document.getElementById('formEducation_2').innerHTML =
-    sessionStorage.getItem('education_2');
+    sessionStorage.getItem('education_2') + ',';
 }
 if (sessionStorage.getItem('degree_2') !== null) {
   document.getElementById('formQualification_2').innerHTML =

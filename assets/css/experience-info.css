@@ -2,7 +2,7 @@ body,
 html {
   margin: 0;
   display: flex;
-  /* overflow: hidden; */
+  /* overflow-x: hidden; */
 }
 @font-face {
   font-family: 'Helvetica Neue';
@@ -15,10 +15,20 @@ html {
   background: #f9f9f9;
 }
 .backBtn {
-  margin-right: 77px;
   width: 9.21px;
   height: 16px;
   font-weight: 500;
+  margin-left: 14px;
+}
+.backBtn-wrapper {
+  margin-right: 58px;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 .header-backBtn-wrapper {
   display: flex;
@@ -56,11 +66,14 @@ html {
 
 /* CV display (previous page - personal info version) */
 .form-info-display {
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   width: 822px;
 }
 .info-picture-wrapper {
   display: flex;
+  justify-content: space-between;
 }
 .info-container {
   margin-left: 80px;
@@ -321,10 +334,11 @@ input[type='date']::-webkit-calendar-picker-indicator {
   border-radius: 4px;
   border-color: transparent;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
   margin-left: 78px;
+  margin-bottom: 44px;
 }
 
 /* Experience info form stylings */

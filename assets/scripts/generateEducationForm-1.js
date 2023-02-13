@@ -193,7 +193,7 @@ descriptionInputElement_1.value = sessionStorage.getItem(
 
 if (sessionStorage.getItem('education_1') !== null) {
   document.getElementById('formEducation_1').innerHTML =
-    sessionStorage.getItem('education_1');
+    sessionStorage.getItem('education_1') + ',';
 }
 if (sessionStorage.getItem('degree_1') !== null) {
   document.getElementById('formQualification_1').innerHTML =

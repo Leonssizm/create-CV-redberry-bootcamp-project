@@ -401,17 +401,11 @@ nextPageButton.addEventListener('click', () => {
 
 function experienceIsNotFoundInLocalStorage(newExperience, experiencesArray) {
   let experienceIndex = experiencesArray.findIndex(experience => {
-    console.log('=============================');
-
-    console.log(newExperience);
-    console.log(experience);
-
     return (
       experience.position == newExperience.position &&
       experience.employer == newExperience.employer
     );
   });
-  console.log('=============== INDEX ==============');
-  console.log(experienceIndex);
+
   return experienceIndex === -1;
 }

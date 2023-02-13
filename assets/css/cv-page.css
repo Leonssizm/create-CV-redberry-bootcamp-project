@@ -12,11 +12,20 @@ html {
   align-items: flex-start;
   margin: 57px 0px 0 62px;
 }
+.circle {
+  height: 40px;
+  width: 40px;
+  background: #f9f9f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
 .backBtn {
   margin-right: 77px;
   width: 9.21px;
   height: 16px;
   font-weight: 500;
+  margin-left: 12px;
 }
 .wrapper {
   display: flex;
@@ -60,7 +69,7 @@ html {
 .form-wrapper {
   margin: 54px 0px 129px 337px;
   width: 822px;
-  height: 1080px;
+  /* height: 1080px; */
   left: calc(50% - 822px / 2);
   top: 54px;
   background: #ffffff;
@@ -72,7 +81,7 @@ html {
 }
 .personal-info-img-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .personal-info-wrapper {
   display: flex;
@@ -262,7 +271,9 @@ html {
   word-break: break-word;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
+  margin-top: 119px;
   margin-left: 78px;
+  margin-bottom: 44px;
 }

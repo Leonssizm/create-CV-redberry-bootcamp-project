@@ -23,9 +23,12 @@ fetch('https://resume.redberryinternship.ge/api/degrees')
       qualificationSelectElement_4.innerHTML += `
           <option value="${degree.id}" id="${degree.id}">${degree.title}</option>
           `;
-      qualificationSelectElement_4.value = sessionStorage.getItem('degree_4');
-      validateQualificationSelect_4();
     });
+    qualificationSelectElement_4.value = sessionStorage.getItem('degree_4');
+    validateQualificationSelect_4();
+    document.getElementById('formQualification_4').innerText = degreesData.find(
+      degreeName => sessionStorage.getItem('degree_4') == degreeName.id
+    ).title;
   });
 
 educationInputElement_4.addEventListener('input', handleEducationInput_4);
@@ -54,6 +57,9 @@ function handleQualificationSelect_4() {
   if (qualificationSelectValue === '') {
     formQualification.innerHTML = '';
   } else {
+    let degreesSearch = degrees.find(
+      degree => degree.id == qualificationSelectValue
+    ).title;
     formQualification.innerHTML = degreesSearch;
   }
   sessionStorage.setItem('degree_4', qualificationSelectElement_4.value);
@@ -184,7 +190,7 @@ descriptionInputElement_4.value = sessionStorage.getItem(
 
 if (sessionStorage.getItem('education_4') !== null) {
   document.getElementById('formEducation_4').innerHTML =
-    sessionStorage.getItem('education_4');
+    sessionStorage.getItem('education_4') + ',';
 }
 if (sessionStorage.getItem('degree_4') !== null) {
   document.getElementById('formQualification_4').innerHTML =

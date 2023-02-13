@@ -15,10 +15,20 @@ html {
   background: #f9f9f9;
 }
 .backBtn {
-  margin-right: 77px;
   width: 9.21px;
   height: 16px;
   font-weight: 500;
+  margin-left: 14px;
+}
+.backBtn-wrapper {
+  margin-right: 58px;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 .header-backBtn-wrapper {
   display: flex;
@@ -248,6 +258,8 @@ label,
 }
 .info-picture-wrapper {
   display: flex;
+
+  justify-content: space-evenly;
 }
 .info-container {
   margin-left: 80px;
