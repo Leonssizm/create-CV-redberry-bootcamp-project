@@ -121,7 +121,7 @@ function validateStartDateInput_4() {
   let startDateInputValue = startDateInputElement_4.value;
   const startDateErrorImg = document.getElementById('startDateErrorImg_4');
   if (!isFilled(startDateInputValue)) {
-    setError(startDateInputElement_4, '', 'startDateLabel');
+    setError(startDateInputElement_4, '', 'startDateLabel_4');
     startDateErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
     startDateErrorImg.style.margin = '15px 0 0 0';
   } else {
@@ -136,7 +136,7 @@ function validateEndDateInput_4() {
   let endDateInputValue = endDateInputElement_4.value;
   const endDateErrorImg = document.getElementById('endDateErrorImg_4');
   if (!isFilled(endDateInputValue)) {
-    setError(endDateInputElement_4, '', 'endDateLabel');
+    setError(endDateInputElement_4, '', 'endDateLabel_4');
     endDateErrorImg.setAttribute('src', './assets/icons/error-warning.svg');
     endDateErrorImg.style.margin = '15px 0 0 10px';
   } else {
